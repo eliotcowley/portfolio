@@ -1,0 +1,31 @@
+﻿<div class="card text-white bg-dark border-light">
+    <div class="card-body">
+        <div class="ratio ratio-16x9 mb-4">
+            <iframe src="@this.VideoLink" title="YouTube video" allowfullscreen></iframe>
+        </div>
+        <h5 class="card-title">@this.ProjectName</h5>
+        <p class="card-text">@this.ProjectDescription</p>
+        <a href="@this.ProjectLink" class="btn btn-primary">&#127918; @this.PlayText</a>
+        <a href="@this.CodeLink" class="btn btn-secondary"><i class="bi bi-github"></i> View code on GitHub</a>
+    </div>
+</div>
+
+@code {
+    [Parameter]
+    public string VideoLink { get; set; }
+
+    [Parameter]
+    public string ProjectName { get; set; }
+
+    [Parameter]
+    public string ProjectDescription { get; set; }
+
+    [Parameter]
+    public string ProjectLink { get; set; }
+
+    [Parameter]
+    public string PlayText { get; set; }
+
+    [Parameter]
+    public string CodeLink { get; set; }
+}

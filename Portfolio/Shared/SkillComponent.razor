@@ -1,0 +1,33 @@
+﻿<div class="rounded-pill @this.backgroundColor text-center py-2">
+    @this.Skill
+</div>
+
+@code {
+    [Parameter]
+    public ExperienceLevel Experience { get; set; }
+
+    [Parameter]
+    public string Skill { get; set; }
+
+    private string backgroundColor;
+
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+
+        switch (this.Experience)
+        {
+            case ExperienceLevel.LessThanOneYear:
+                this.backgroundColor = "bg-secondary";
+                break;
+
+            case ExperienceLevel.OneToThreeYears:
+                this.backgroundColor = "bg-primary";
+                break;
+
+            case ExperienceLevel.OverThreeYears:
+                this.backgroundColor = "bg-success";
+                break;
+        }
+    }
+}

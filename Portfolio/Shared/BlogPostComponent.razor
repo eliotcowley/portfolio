@@ -1,0 +1,19 @@
+﻿@inject HttpClient Http
+
+@this.html
+
+@code {
+    [Parameter]
+    public string FilePath { get; set; }
+
+    private MarkupString html;
+
+    protected override async Task OnInitializedAsync()
+    {
+        string path = @"blog-posts/" + this.FilePath;
+        string markdown = await Http.GetStringAsync(path);
+        string htmlString = Markdown.ToHtml(markdown);
+        Console.WriteLine(htmlString);
+        this.html = new MarkupString(htmlString);
+    }
+}

@@ -2,18 +2,50 @@
 
 @this.html
 
+<a class="btn btn-light" href="/blog/@this.url">Read more</a>
+
 @code {
     [Parameter]
     public string FilePath { get; set; }
 
     private MarkupString html;
+    private string url;
+    private string firstPara;
 
     protected override async Task OnInitializedAsync()
     {
         string path = @"blog-posts/" + this.FilePath;
         string markdown = await Http.GetStringAsync(path);
-        string htmlString = Markdown.ToHtml(markdown);
-        Console.WriteLine(htmlString);
+        StringReader stringReader = new StringReader(markdown);
+        StringBuilder stringBuilder = new StringBuilder();
+
+        while (true)
+        {
+            string s = stringReader.ReadLine();
+
+            if (s == null)
+            {
+                break;
+            }
+
+            if (s == string.Empty)
+            {
+                continue;
+            }
+
+            if (s.StartsWith('#'))
+            {
+                stringBuilder.AppendLine(s.Trim());
+                continue;
+            }
+
+            stringBuilder.AppendLine(s.Trim());
+            break;
+        }
+
+        this.firstPara = stringBuilder.ToString();
+        string htmlString = Markdown.ToHtml(this.firstPara);
         this.html = new MarkupString(htmlString);
+        this.url = this.FilePath.Split('.')[0];
     }
 }

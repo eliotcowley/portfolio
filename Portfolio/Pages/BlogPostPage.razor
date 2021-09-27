@@ -1,0 +1,33 @@
+﻿@page "/blog/{PostUrl}"
+@inject HttpClient Http
+
+<a class="btn btn-light mb-4" href="/blog"><i class="bi bi-arrow-left"></i> All posts</a>
+
+@if (this.html.Value != string.Empty)
+{
+    @this.html
+}
+
+@code {
+    [Parameter]
+    public string PostUrl { get; set; }
+
+    private MarkupString html;
+
+    protected override async Task OnInitializedAsync()
+    {
+        string path = @"blog-posts/" + this.PostUrl + ".md";
+
+        try
+        {
+            string markdown = await Http.GetStringAsync(path);
+            StringReader stringReader = new StringReader(markdown);
+            string htmlString = Markdown.ToHtml(markdown);
+            this.html = new MarkupString(htmlString);
+        }
+        catch (Exception)
+        {
+            this.html = new MarkupString("<p>Sorry, I couldn't find that post :(</p>");
+        }
+    }
+}

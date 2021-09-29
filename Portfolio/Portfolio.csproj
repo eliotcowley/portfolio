@@ -6,9 +6,17 @@
 
   <ItemGroup>
     <Content Remove="wwwroot\blog-posts\markdown-test-2.md" />
+    <Content Remove="wwwroot\blog-posts\markdown-test-3.md" />
+    <Content Remove="wwwroot\blog-posts\markdown-test-4.md" />
+    <Content Remove="wwwroot\blog-posts\markdown-test-5.md" />
+    <Content Remove="wwwroot\blog-posts\markdown-test-6.md" />
   </ItemGroup>
 
   <ItemGroup>
+    <None Include="wwwroot\blog-posts\markdown-test-3.md" />
+    <None Include="wwwroot\blog-posts\markdown-test-6.md" />
+    <None Include="wwwroot\blog-posts\markdown-test-5.md" />
+    <None Include="wwwroot\blog-posts\markdown-test-4.md" />
     <None Include="wwwroot\blog-posts\markdown-test-2.md" />
     <None Include="wwwroot\blog-posts\markdown-test.md" />
   </ItemGroup>

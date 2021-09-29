@@ -1,0 +1,121 @@
+﻿@page "/blog"
+@inject HttpClient Http
+
+<h1 class="display-1 mb-5">Blog</h1>
+
+@if (this.currentPagePosts != null)
+{
+    @foreach (var item in this.currentPagePosts)
+    {
+        <div class="mb-5 pb-5">
+            <BlogPostComponent FilePath="@item"></BlogPostComponent>
+        </div>
+    }
+}
+
+@if (this.blogFiles != null)
+{
+    if (this.numPages > 1)
+    {
+        <button class="btn btn-outline-primary me-2" @onclick="OnPreviousClick">Previous</button>
+
+        @for (int i = 0; i < this.numPages; i++)
+        {
+            int buttonNum = i;
+
+            if (this.currentPage == i)
+            {
+                <button class="btn btn-light me-1" @onclick="@(() => OnPageButtonClick(buttonNum))">@(i + 1)</button>
+            }
+            else
+            {
+                <button class="btn btn-outline-light me-1" @onclick="@(() => OnPageButtonClick(buttonNum))">@(i + 1)</button>
+            }
+        }
+
+        <button class="btn btn-outline-primary ms-1" @onclick="OnNextClick">Next</button>
+    }
+}
+
+@code {
+    private List<string> blogFiles;
+    private List<string> currentPagePosts;
+    private int currentPage = 0;
+    private int numPostsOnPage = 5;
+    private int numPages = 0;
+
+    protected override async Task OnInitializedAsync()
+    {
+        this.blogFiles = new List<string>();
+        string data = await Http.GetStringAsync("blog-posts/blog-post-data.txt");
+        StringReader stringReader = new StringReader(data);
+
+        while (true)
+        {
+            string filename = stringReader.ReadLine();
+
+            if (filename != null)
+            {
+                this.blogFiles.Add(filename);
+            }
+            else
+            {
+                break;
+            }
+        }
+
+        this.currentPagePosts = GetCurrentPagePosts(this.currentPage);
+        float numPagesF = (float)this.blogFiles.Count / (float)this.numPostsOnPage;
+        this.numPages = (int)Math.Ceiling(numPagesF);
+    }
+
+    private List<string> GetCurrentPagePosts(int page)
+    {
+        int counter = 0;
+        List<string> currentPagePosts = new List<string>();
+
+        while (counter < this.numPostsOnPage)
+        {
+            string post = this.blogFiles.ElementAtOrDefault(page * this.numPostsOnPage + counter);
+
+            if (!string.IsNullOrEmpty(post))
+            {
+                currentPagePosts.Add(post);
+            }
+
+            counter++;
+        }
+
+        return currentPagePosts;
+    }
+
+    private void OnPreviousClick()
+    {
+        if (this.currentPage > 0)
+        {
+            this.currentPage--;
+            RefreshPosts();
+        }
+    }
+
+    private void OnNextClick()
+    {
+        if (this.currentPage < (this.numPages - 1))
+        {
+            this.currentPage++;
+            RefreshPosts();
+        }
+    }
+
+    private void OnPageButtonClick(int pageNum)
+    {
+        this.currentPage = pageNum;
+        RefreshPosts();
+    }
+
+    private void RefreshPosts()
+    {
+        this.currentPagePosts = GetCurrentPagePosts(this.currentPage);
+        StateHasChanged();
+    }
+}

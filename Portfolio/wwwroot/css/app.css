@@ -29,6 +29,28 @@ h2 {
     color: red;
 }
 
+.invisible {
+    opacity: 0;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.fade-in {
+    animation-name: fadeIn;
+    animation-duration: 1s;
+    animation-timing-function: ease;
+    animation-iteration-count: 1;
+    animation-delay: 0s;
+}
+
 #blazor-error-ui {
     background: lightyellow;
     bottom: 0;

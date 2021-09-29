@@ -1,4 +1,5 @@
 ﻿@inherits LayoutComponentBase
+@inject HttpClient Http
 
 <div class="container-fluid p-0 h-100 main-container">
 
@@ -29,9 +30,15 @@
                         <li><a class="dropdown-item" href="#">日本語</a></li>
                     </ul>
                 </div>
-                <form class="d-flex">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-success" type="submit">
+                <form class="dropdown d-flex">
+                    <input class="form-control dropdown-toggle" type="search" placeholder="Search" aria-label="Search" data-bs-toggle="dropdown" aria-expanded="false" @oninput="OnSearchInput" />
+                    <ul class="dropdown-menu dropdown-menu-dark @(this.searchSuggestions.Count == 0 ? "invisible" : "show")" aria-labelledby="Search">
+                        @foreach (var item in this.searchSuggestions)
+                        {
+                            <li><a class="dropdown-item" href="@DataManager.BlogPosts.Find(post => post.Title == item).Url">@item</a></li>
+                        }
+                    </ul>
+                    <button class="btn btn-light ms-2" type="submit">
                         <i class="bi bi-search"></i>
                     </button>
                 </form>
@@ -57,12 +64,19 @@
     [Inject]
     NavigationManager NavigationManager { get; set; }
 
-    protected override void OnInitialized()
+    private List<string> searchSuggestions;
+    private string searchString = string.Empty;
+
+    protected override async void OnInitialized()
     {
         NavigationManager.LocationChanged += (s, e) =>
         {
             StateHasChanged();
         };
+
+        this.searchSuggestions = new List<string>();
+        DataManager.PostFiles = await GetPostFilesAsync();
+        DataManager.BlogPosts = await GetPostsAsync();
     }
 
     bool IsActive(string href, NavLinkMatch navLinkMatch = NavLinkMatch.Prefix)
@@ -72,4 +86,86 @@
     }
 
     string GetActive(string href, NavLinkMatch navLinkMatch = NavLinkMatch.Prefix) => IsActive(href, navLinkMatch) ? "active" : "";
+
+    private void OnSearchInput(ChangeEventArgs changeEventArgs)
+    {
+        this.searchString = changeEventArgs.Value.ToString();
+
+        if (this.searchString == string.Empty)
+        {
+            this.searchSuggestions.Clear();
+        }
+        else
+        {
+            this.searchSuggestions = DataManager.BlogPosts
+                .Select(post => post.Title)
+                .Where(title => title.ToLower().Contains(this.searchString.ToLower())).ToList();
+        }
+    }
+
+    private async Task<List<BlogPost>> GetPostsAsync()
+    {
+        List<BlogPost> blogPosts = new List<BlogPost>();
+
+        foreach (var item in DataManager.PostFiles)
+        {
+            string markdown = await Http.GetStringAsync($"blog-posts/{item}");
+            StringReader stringReader = new StringReader(markdown);
+            StringBuilder stringBuilder = new StringBuilder();
+            BlogPost blogPost = new BlogPost();
+
+            while (true)
+            {
+                string s = stringReader.ReadLine();
+
+                if (s == null)
+                {
+                    break;
+                }
+
+                if (s == string.Empty)
+                {
+                    continue;
+                }
+
+                if (s.StartsWith('#'))
+                {
+                    blogPost.Title = s.Split('#')[1].Trim();
+                    continue;
+                }
+
+                stringBuilder.AppendLine(s.Trim());
+            }
+
+            blogPost.Body = stringBuilder.ToString().Trim();
+            string url = item.Split('.')[0];
+            blogPost.Url = $"blog/{url}";
+            blogPosts.Add(blogPost);
+        }
+
+        return blogPosts;
+    }
+
+    private async Task<List<string>> GetPostFilesAsync()
+    {
+        List<string> postData = new List<string>();
+        string data = await Http.GetStringAsync("blog-posts/blog-post-data.txt");
+        StringReader stringReader = new StringReader(data);
+
+        while (true)
+        {
+            string filename = stringReader.ReadLine();
+
+            if (filename != null)
+            {
+                postData.Add(filename);
+            }
+            else
+            {
+                break;
+            }
+        }
+
+        return postData;
+    }
 }

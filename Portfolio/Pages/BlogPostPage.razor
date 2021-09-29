@@ -16,6 +16,16 @@
 
     protected override async Task OnInitializedAsync()
     {
+        await CreatePage();
+    }
+
+    protected async override Task OnParametersSetAsync()
+    {
+        await Refresh();
+    }
+
+    private async Task CreatePage()
+    {
         string path = @"blog-posts/" + this.PostUrl + ".md";
 
         try
@@ -29,5 +39,11 @@
         {
             this.html = new MarkupString("<p>Sorry, I couldn't find that post :(</p>");
         }
+    }
+
+    private async Task Refresh()
+    {
+        await CreatePage();
+        StateHasChanged();
     }
 }

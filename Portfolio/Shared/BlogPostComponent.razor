@@ -1,9 +1,10 @@
 ﻿@inject HttpClient Http
 
-    <div class="spinner-border @(loaded ? "invisible" : "")" role="status" />
+<div class="spinner-border @(loaded ? "invisible" : "")" role="status" />
 
 <div class="@(fade ? "" : "invisible") @(fade ? "fade-in" : "")">
-    @this.html
+    <h1>@this.title</h1>
+    <p>@this.firstPara</p>
     <a class="btn btn-light" href="/blog/@this.url">Read more</a>
 </div>
 
@@ -12,67 +13,37 @@
     public string FilePath { get; set; }
     private string filePath;
 
-    private MarkupString html;
+    private string title;
     private string url;
     private string firstPara;
     private bool fade = true;
     private bool loaded = false;
 
-    public async Task Refresh()
+    public void Refresh()
     {
-        await CreatePostComponent();
+        CreatePostComponent();
         StateHasChanged();
         this.fade = true;
     }
 
-    protected override async Task OnInitializedAsync()
+    protected override void OnInitialized()
     {
-        await base.OnInitializedAsync();
-        await CreatePostComponent();
+        CreatePostComponent();
     }
 
-    protected async override Task OnParametersSetAsync()
+    protected override void OnParametersSet()
     {
         this.loaded = false;
         this.fade = false;
-        await Refresh();
+        Refresh();
     }
 
-    private async Task CreatePostComponent()
+    private void CreatePostComponent()
     {
-        this.filePath = FilePath;
-        string path = @"blog-posts/" + this.filePath;
-        string markdown = await Http.GetStringAsync(path);
-        StringReader stringReader = new StringReader(markdown);
-        StringBuilder stringBuilder = new StringBuilder();
-
-        while (true)
-        {
-            string s = stringReader.ReadLine();
-
-            if (s == null)
-            {
-                break;
-            }
-
-            if (s == string.Empty)
-            {
-                continue;
-            }
-
-            if (s.StartsWith('#'))
-            {
-                stringBuilder.AppendLine(s.Trim());
-                continue;
-            }
-
-            stringBuilder.AppendLine(s.Trim());
-            break;
-        }
-
-        this.firstPara = stringBuilder.ToString();
-        string htmlString = Markdown.ToHtml(this.firstPara);
-        this.html = new MarkupString(htmlString);
+        this.filePath = FilePath; // markdown-test.md
+        BlogPost post = DataManager.BlogPosts.Find(post => post.Url.Split('/')[1] + ".md" == this.filePath);
+        this.title = post.Title;
+        this.firstPara = post.FirstPara;
         this.url = this.filePath.Split('.')[0];
         this.loaded = true;
     }

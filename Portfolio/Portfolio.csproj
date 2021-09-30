@@ -1,10 +1,16 @@
-<Project Sdk="Microsoft.NET.Sdk.BlazorWebAssembly">
+﻿<Project Sdk="Microsoft.NET.Sdk.BlazorWebAssembly">
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Remove="wwwroot\blog-posts\ja-JP\markdown-test-2.md" />
+    <Content Remove="wwwroot\blog-posts\ja-JP\markdown-test-3.md" />
+    <Content Remove="wwwroot\blog-posts\ja-JP\markdown-test-4.md" />
+    <Content Remove="wwwroot\blog-posts\ja-JP\markdown-test-5.md" />
+    <Content Remove="wwwroot\blog-posts\ja-JP\markdown-test-6.md" />
+    <Content Remove="wwwroot\blog-posts\ja-JP\markdown-test.md" />
     <Content Remove="wwwroot\blog-posts\markdown-test-2.md" />
     <Content Remove="wwwroot\blog-posts\markdown-test-3.md" />
     <Content Remove="wwwroot\blog-posts\markdown-test-4.md" />
@@ -13,19 +19,50 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="wwwroot\blog-posts\markdown-test-3.md" />
-    <None Include="wwwroot\blog-posts\markdown-test-6.md" />
-    <None Include="wwwroot\blog-posts\markdown-test-5.md" />
-    <None Include="wwwroot\blog-posts\markdown-test-4.md" />
-    <None Include="wwwroot\blog-posts\markdown-test-2.md" />
-    <None Include="wwwroot\blog-posts\markdown-test.md" />
+    <None Include="wwwroot\blog-posts\ja-JP\markdown-test-2.md" />
+    <None Include="wwwroot\blog-posts\ja-JP\markdown-test-3.md" />
+    <None Include="wwwroot\blog-posts\ja-JP\markdown-test-4.md" />
+    <None Include="wwwroot\blog-posts\ja-JP\markdown-test-5.md" />
+    <None Include="wwwroot\blog-posts\ja-JP\markdown-test-6.md" />
+    <None Include="wwwroot\blog-posts\ja-JP\markdown-test.md" />
+    <None Include="wwwroot\blog-posts\en-US\markdown-test-3.md" />
+    <None Include="wwwroot\blog-posts\en-US\markdown-test-6.md" />
+    <None Include="wwwroot\blog-posts\en-US\markdown-test-5.md" />
+    <None Include="wwwroot\blog-posts\en-US\markdown-test-4.md" />
+    <None Include="wwwroot\blog-posts\en-US\markdown-test-2.md" />
+    <None Include="wwwroot\blog-posts\en-US\markdown-test.md" />
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Blazored.LocalStorage" Version="4.1.5" />
     <PackageReference Include="Markdig" Version="0.26.0" />
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="5.0.10" />
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="5.0.10" PrivateAssets="all" />
+    <PackageReference Include="Microsoft.Extensions.Localization" Version="5.0.10" />
     <PackageReference Include="System.Net.Http.Json" Version="5.0.0" />
   </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="ResourceFiles\Resource.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resource.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="ResourceFiles\Resource.ja.resx">
+      <LastGenOutput>Resource.Designer.cs</LastGenOutput>
+      <Generator>PublicResXFileCodeGenerator</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="ResourceFiles\Resource.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+
+  <PropertyGroup>
+    <BlazorWebAssemblyLoadAllGlobalizationData>true</BlazorWebAssemblyLoadAllGlobalizationData>
+  </PropertyGroup>
 
 </Project>

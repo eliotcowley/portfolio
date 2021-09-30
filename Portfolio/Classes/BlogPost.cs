@@ -9,6 +9,9 @@ namespace Portfolio.Classes
     {
         public string Title { get; set; }
         public string Body { get; set; }
+
+        // blog/{file.md}
         public string Url { get; set; }
+        public string FirstPara { get; set; }
     }
 }

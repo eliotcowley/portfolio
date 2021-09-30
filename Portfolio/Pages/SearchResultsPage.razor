@@ -1,0 +1,41 @@
+﻿@page "/search/{SearchString}"
+
+@if (this.SearchString != null)
+{
+    <h1 class="display-1 mb-5">Search results for "@this.SearchString"</h1>
+}
+
+@if (this.searchResults != null)
+{
+    @foreach (var item in this.searchResults)
+    {
+        <div class="mb-5">
+            <h1><a href="@item.Url">@item.Title</a></h1>
+            <p>@item.FirstPara</p>
+        </div>
+    }
+}
+
+@code {
+    [Parameter]
+    public string SearchString { get; set; }
+
+    private List<BlogPost> searchResults;
+
+    protected async override Task OnInitializedAsync()
+    {
+        this.searchResults = await GetSearchResults();
+    }
+
+    private async Task<List<BlogPost>> GetSearchResults()
+    {
+        return DataManager.BlogPosts
+            .Where(post => post.Title.ToLower().Contains(this.SearchString.ToLower()))
+            .ToList();
+    }
+
+    protected override void OnParametersSet()
+    {
+        Console.WriteLine("Search results params set");
+    }
+}

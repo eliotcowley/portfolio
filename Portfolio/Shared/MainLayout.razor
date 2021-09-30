@@ -1,37 +1,37 @@
 ﻿@inherits LayoutComponentBase
-@inject HttpClient Http
+@using System.Globalization
+@inject ILocalStorageService localStorage
+@inject IStringLocalizer<ResourceFiles.Resource> loc
 
 <div class="container-fluid p-0 h-100 main-container">
 
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-dark-blue">
         <div class="container">
-            <a class="navbar-brand" href="">Eliot Cowley</a>
+            <a class="navbar-brand" href="">@loc["MyName"]</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link @GetActive("", NavLinkMatch.All)" href="">Home</a>
+                        <a class="nav-link @GetActive("", NavLinkMatch.All)" href="">@loc["Home"]</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link @GetActive("blog", NavLinkMatch.All)" href="/blog">Blog</a>
+                        <a class="nav-link @GetActive("blog", NavLinkMatch.All)" href="/blog">@loc["Blog"]</a>
                     </li>
                 </ul>
                 <a class="btn btn-primary me-4 mb-2 mb-lg-0" href="https://www.linkedin.com/in/eliotcowley/">
                     <i class="bi bi-linkedin"></i>
                 </a>
-                <div class="dropdown me-4 mb-2 mb-lg-0">
-                    <button class="btn btn-outline-light dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                        Language / 言語
-                    </button>
-                    <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton1">
-                        <li><a class="dropdown-item" href="#">English</a></li>
-                        <li><a class="dropdown-item" href="#">日本語</a></li>
-                    </ul>
-                </div>
-                <form class="dropdown d-flex">
-                    <input class="form-control dropdown-toggle" type="search" placeholder="Search" aria-label="Search" data-bs-toggle="dropdown" aria-expanded="false" @oninput="OnSearchInput" />
+                <form class="me-4 mb-2 mb-lg-0">
+                    <select class="form-select bg-dark text-white arrow-white" aria-label="Select language" @onchange="OnLanguageChange">
+                        <option selected class="text-white">Language / 言語</option>
+                        <option value="en-US">English</option>
+                        <option value="ja-JP">日本語</option>
+                    </select>
+                </form>
+                <form class="dropdown d-flex" action="/search" @onsubmit="OnSearchSubmit" autocomplete="off">
+                    <input class="form-control dropdown-toggle" type="search" placeholder="@loc["Search"]" aria-label="Search" data-bs-toggle="dropdown" aria-expanded="false" @oninput="OnSearchInput" name="input" />
                     <ul class="dropdown-menu dropdown-menu-dark @(this.searchSuggestions.Count == 0 ? "invisible" : "show")" aria-labelledby="Search">
                         @foreach (var item in this.searchSuggestions)
                         {
@@ -54,8 +54,8 @@
 
     <footer class="container-fluid py-5 text-center myFooter">
         <div class="container">
-            <p class="m-0 mb-2"><i class="bi bi-code-slash text-success"></i> Made with Blazor by Eliot Cowley</p>
-            <a class="btn btn-light" href="https://github.com/eliotcowley/portfolio"><i class="bi bi-github"></i> View code on GitHub</a>
+            <p class="m-0 mb-2"><i class="bi bi-code-slash text-success"></i> @loc["MadeWith"]</p>
+            <a class="btn btn-light" href="https://github.com/eliotcowley/portfolio"><i class="bi bi-github"></i> @loc["ViewCode"]</a>
         </div>
     </footer>
 </div>
@@ -66,8 +66,9 @@
 
     private List<string> searchSuggestions;
     private string searchString = string.Empty;
+    private string currentCulture;
 
-    protected override async void OnInitialized()
+    protected override void OnInitialized()
     {
         NavigationManager.LocationChanged += (s, e) =>
         {
@@ -75,8 +76,7 @@
         };
 
         this.searchSuggestions = new List<string>();
-        DataManager.PostFiles = await GetPostFilesAsync();
-        DataManager.BlogPosts = await GetPostsAsync();
+        this.currentCulture = CultureInfo.CurrentCulture.Name;
     }
 
     bool IsActive(string href, NavLinkMatch navLinkMatch = NavLinkMatch.Prefix)
@@ -99,73 +99,21 @@
         {
             this.searchSuggestions = DataManager.BlogPosts
                 .Select(post => post.Title)
-                .Where(title => title.ToLower().Contains(this.searchString.ToLower())).ToList();
+                .Where(title => title.ToLower().Contains(this.searchString.ToLower()))
+                .Take(3)
+                .ToList();
         }
     }
 
-    private async Task<List<BlogPost>> GetPostsAsync()
+    private void OnSearchSubmit()
     {
-        List<BlogPost> blogPosts = new List<BlogPost>();
-
-        foreach (var item in DataManager.PostFiles)
-        {
-            string markdown = await Http.GetStringAsync($"blog-posts/{item}");
-            StringReader stringReader = new StringReader(markdown);
-            StringBuilder stringBuilder = new StringBuilder();
-            BlogPost blogPost = new BlogPost();
-
-            while (true)
-            {
-                string s = stringReader.ReadLine();
-
-                if (s == null)
-                {
-                    break;
-                }
-
-                if (s == string.Empty)
-                {
-                    continue;
-                }
-
-                if (s.StartsWith('#'))
-                {
-                    blogPost.Title = s.Split('#')[1].Trim();
-                    continue;
-                }
-
-                stringBuilder.AppendLine(s.Trim());
-            }
-
-            blogPost.Body = stringBuilder.ToString().Trim();
-            string url = item.Split('.')[0];
-            blogPost.Url = $"blog/{url}";
-            blogPosts.Add(blogPost);
-        }
-
-        return blogPosts;
+        NavigationManager.NavigateTo($"/search/{this.searchString}");
     }
 
-    private async Task<List<string>> GetPostFilesAsync()
+    private void OnLanguageChange(ChangeEventArgs e)
     {
-        List<string> postData = new List<string>();
-        string data = await Http.GetStringAsync("blog-posts/blog-post-data.txt");
-        StringReader stringReader = new StringReader(data);
-
-        while (true)
-        {
-            string filename = stringReader.ReadLine();
-
-            if (filename != null)
-            {
-                postData.Add(filename);
-            }
-            else
-            {
-                break;
-            }
-        }
-
-        return postData;
+        localStorage.SetItemAsync<string>("language", e.Value.ToString());
+        NavigationManager.NavigateTo(NavigationManager.Uri, forceLoad: true);
+        Console.WriteLine("On language change");
     }
 }

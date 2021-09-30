@@ -13,7 +13,7 @@
     }
 }
 
-@if (this.blogFiles != null)
+@if (DataManager.PostFiles != null)
 {
     if (this.numPages > 1)
     {
@@ -38,34 +38,15 @@
 }
 
 @code {
-    private List<string> blogFiles;
     private List<string> currentPagePosts;
     private int currentPage = 0;
     private int numPostsOnPage = 5;
     private int numPages = 0;
 
-    protected override async Task OnInitializedAsync()
+    protected override void OnInitialized()
     {
-        this.blogFiles = new List<string>();
-        string data = await Http.GetStringAsync("blog-posts/blog-post-data.txt");
-        StringReader stringReader = new StringReader(data);
-
-        while (true)
-        {
-            string filename = stringReader.ReadLine();
-
-            if (filename != null)
-            {
-                this.blogFiles.Add(filename);
-            }
-            else
-            {
-                break;
-            }
-        }
-
         this.currentPagePosts = GetCurrentPagePosts(this.currentPage);
-        float numPagesF = (float)this.blogFiles.Count / (float)this.numPostsOnPage;
+        float numPagesF = (float)DataManager.PostFiles.Count / (float)this.numPostsOnPage;
         this.numPages = (int)Math.Ceiling(numPagesF);
     }
 
@@ -76,7 +57,7 @@
 
         while (counter < this.numPostsOnPage)
         {
-            string post = this.blogFiles.ElementAtOrDefault(page * this.numPostsOnPage + counter);
+            string post = DataManager.PostFiles.ElementAtOrDefault(page * this.numPostsOnPage + counter);
 
             if (!string.IsNullOrEmpty(post))
             {

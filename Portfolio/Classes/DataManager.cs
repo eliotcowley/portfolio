@@ -18,6 +18,7 @@ namespace Portfolio.Classes
 
         public static async Task FetchPostsAsync(HttpClient httpClient)
         {
+            Console.WriteLine("Getting posts");
             DataManager.httpClient = httpClient;
             PostFiles = await GetPostFilesAsync();
             BlogPosts = await GetPostsAsync(httpClient);
@@ -27,7 +28,6 @@ namespace Portfolio.Classes
         {
             List<BlogPost> blogPosts = new List<BlogPost>();
             string languageFolder = CultureInfo.CurrentCulture.ToString();
-            Console.WriteLine(languageFolder);
 
             foreach (string item in PostFiles)
             {

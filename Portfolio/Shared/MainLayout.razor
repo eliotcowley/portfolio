@@ -31,8 +31,8 @@
                     </select>
                 </form>
                 <form class="dropdown d-flex" action="/search" @onsubmit="OnSearchSubmit" autocomplete="off">
-                    <input class="form-control dropdown-toggle" type="search" placeholder="@loc["Search"]" aria-label="Search" data-bs-toggle="dropdown" aria-expanded="false" @oninput="OnSearchInput" name="input" />
-                    <ul class="dropdown-menu dropdown-menu-dark @(this.searchSuggestions.Count == 0 ? "invisible" : "show")" aria-labelledby="Search">
+                    <input class="form-control dropdown-toggle" type="search" placeholder="@loc["Search"]" aria-label="Search" data-bs-toggle="dropdown" aria-expanded="false" @oninput="OnSearchInput" name="input" @bind-value="this.searchString" />
+                    <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="Search" style="opacity: @this.searchDropdownOpacity">
                         @foreach (var item in this.searchSuggestions)
                         {
                             <li><a class="dropdown-item" href="@DataManager.BlogPosts.Find(post => post.Title == item).Url">@item</a></li>
@@ -67,6 +67,7 @@
     private List<string> searchSuggestions;
     private string searchString = string.Empty;
     private string currentCulture;
+    private int searchDropdownOpacity = 0;
 
     protected override void OnInitialized()
     {
@@ -93,6 +94,7 @@
 
         if (this.searchString == string.Empty)
         {
+            this.searchDropdownOpacity = 0;
             this.searchSuggestions.Clear();
         }
         else
@@ -102,18 +104,26 @@
                 .Where(title => title.ToLower().Contains(this.searchString.ToLower()))
                 .Take(3)
                 .ToList();
+
+            this.searchDropdownOpacity = 1;
         }
     }
 
     private void OnSearchSubmit()
     {
-        NavigationManager.NavigateTo($"/search/{this.searchString}");
+        if (NavigationManager.Uri != $"{NavigationManager.BaseUri}/search/{this.searchString}")
+        {
+            this.searchSuggestions.Clear();
+            StateHasChanged();
+            NavigationManager.NavigateTo($"/search/{this.searchString}");
+            this.searchString = string.Empty;
+            this.searchDropdownOpacity = 0;
+        }
     }
 
     private void OnLanguageChange(ChangeEventArgs e)
     {
         localStorage.SetItemAsync<string>("language", e.Value.ToString());
         NavigationManager.NavigateTo(NavigationManager.Uri, forceLoad: true);
-        Console.WriteLine("On language change");
     }
 }

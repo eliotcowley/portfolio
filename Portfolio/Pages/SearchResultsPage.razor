@@ -5,37 +5,120 @@
     <h1 class="display-1 mb-5">Search results for "@this.SearchString"</h1>
 }
 
-@if (this.searchResults != null)
+@if (this.currentPageResults != null)
 {
-    @foreach (var item in this.searchResults)
+    @foreach (var item in this.currentPageResults)
     {
-        <div class="mb-5">
+        <div class="mb-5 fade-in">
             <h1><a href="@item.Url">@item.Title</a></h1>
             <p>@item.FirstPara</p>
         </div>
     }
 }
 
+@if (this.numPages > 1)
+{
+    <button class="btn btn-outline-primary me-2" @onclick="OnPreviousClick">Previous</button>
+
+    @for (int i = 0; i < this.numPages; i++)
+    {
+        int buttonNum = i;
+
+        if (this.currentPage == i)
+        {
+            <button class="btn btn-light me-1" @onclick="@(() => OnPageButtonClick(buttonNum))">@(i + 1)</button>
+        }
+        else
+        {
+            <button class="btn btn-outline-light me-1" @onclick="@(() => OnPageButtonClick(buttonNum))">@(i + 1)</button>
+        }
+    }
+
+    <button class="btn btn-outline-primary ms-1" @onclick="OnNextClick">Next</button>
+}
+
 @code {
+    // This feels icky. Lots of code duplication from BlogPage.razor. Make a common base class with shared functionality and inherit instead.
+
     [Parameter]
     public string SearchString { get; set; }
 
     private List<BlogPost> searchResults;
+    private List<BlogPost> currentPageResults;
+    private int currentPage = 0;
+    private int numResultsOnPage = 5;
+    private int numPages = 0;
 
-    protected async override Task OnInitializedAsync()
+    protected override void OnInitialized()
     {
-        this.searchResults = await GetSearchResults();
+        InitSearch();
     }
 
-    private async Task<List<BlogPost>> GetSearchResults()
+    protected override void OnParametersSet()
+    {
+        InitSearch();
+    }
+
+    private void InitSearch()
+    {
+        this.searchResults = GetSearchResults();
+        this.currentPageResults = GetCurrentPageResults(this.currentPage);
+        float numPagesF = (float)this.searchResults.Count / (float)this.numResultsOnPage;
+        this.numPages = (int)Math.Ceiling(numPagesF);
+    }
+
+    private List<BlogPost> GetSearchResults()
     {
         return DataManager.BlogPosts
             .Where(post => post.Title.ToLower().Contains(this.SearchString.ToLower()))
             .ToList();
     }
 
-    protected override void OnParametersSet()
+    private List<BlogPost> GetCurrentPageResults(int page)
     {
-        Console.WriteLine("Search results params set");
+        StateHasChanged();
+        int counter = page * this.numResultsOnPage;
+        int stop = counter + this.numResultsOnPage;
+        List<BlogPost> currentPageResults = new List<BlogPost>();
+        Console.WriteLine($"counter: {counter} stop: {stop}");
+
+        while (counter < stop && counter < this.searchResults.Count)
+        {
+            BlogPost result = this.searchResults.ElementAt(counter);
+            currentPageResults.Add(result);
+            counter++;
+        }
+
+        return currentPageResults;
+    }
+
+    private void OnPreviousClick()
+    {
+        if (this.currentPage > 0)
+        {
+            this.currentPage--;
+            RefreshPosts();
+        }
+    }
+
+    private void OnNextClick()
+    {
+        if (this.currentPage < (this.numPages - 1))
+        {
+            this.currentPage++;
+            RefreshPosts();
+        }
+    }
+
+    private void OnPageButtonClick(int pageNum)
+    {
+        this.currentPage = pageNum;
+        RefreshPosts();
+    }
+
+    private void RefreshPosts()
+    {
+        this.currentPageResults = GetCurrentPageResults(this.currentPage);
+        StateHasChanged();
     }
 }

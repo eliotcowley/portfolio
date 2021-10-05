@@ -120,22 +120,82 @@
   <data name="Blog" xml:space="preserve">
     <value>ブログ</value>
   </data>
+  <data name="EnglishNative" xml:space="preserve">
+    <value>英語（ネイティブ）</value>
+  </data>
   <data name="Greeting" xml:space="preserve">
     <value>こんにちは、世界！</value>
   </data>
   <data name="Home" xml:space="preserve">
     <value>ホーム</value>
   </data>
+  <data name="Intro1" xml:space="preserve">
+    <value>私のポートフォリオへようこそ!</value>
+  </data>
+  <data name="Intro2" xml:space="preserve">
+    <value>ここでは、私が作ったゲーム、学んだスキル、書いたブログ記事などを紹介しています。</value>
+  </data>
+  <data name="Intro3" xml:space="preserve">
+    <value>このウェブサイトは、ウェブ開発を学ぶための自分への挑戦として、Blazorを使って作りました。</value>
+  </data>
+  <data name="Japanese" xml:space="preserve">
+    <value>日本語（JLPT N3）</value>
+  </data>
+  <data name="LessThanOneYear" xml:space="preserve">
+    <value>1年以下</value>
+  </data>
+  <data name="LinkedIn" xml:space="preserve">
+    <value>LinkedIn</value>
+  </data>
   <data name="MadeWith" xml:space="preserve">
-    <value>エリオット・カウリーによるBlazorを使ったウェブサイト</value>
+    <value>エリオット・カウリーによって、Blazorを使ったウェブサイト</value>
   </data>
   <data name="MyName" xml:space="preserve">
     <value>エリオット・カウリー</value>
   </data>
+  <data name="OneToThreeYears" xml:space="preserve">
+    <value>1～3年</value>
+  </data>
+  <data name="OverThreeYears" xml:space="preserve">
+    <value>3年以上</value>
+  </data>
+  <data name="PlayOnItch" xml:space="preserve">
+    <value>itch.ioでプレイする</value>
+  </data>
+  <data name="Projects" xml:space="preserve">
+    <value>プロジェクト</value>
+  </data>
+  <data name="Projects1" xml:space="preserve">
+    <value>以下のビデオでは、私が手がけたゲームの一部を紹介しています。</value>
+  </data>
+  <data name="Projects2" xml:space="preserve">
+    <value>以下は、私が手がけたプロジェクトの一部で、プレイしたりソースコードを見たりするためのリンクがついています。</value>
+  </data>
   <data name="Search" xml:space="preserve">
     <value>検索する</value>
   </data>
+  <data name="Skills1" xml:space="preserve">
+    <value>ここでは、私が学んだスキルを、経験年数別に色分けしてご紹介します。</value>
+  </data>
+  <data name="Skills2" xml:space="preserve">
+    <value>私の学歴や職歴を含む全履歴書は、</value>
+  </data>
+  <data name="Skills3" xml:space="preserve">
+    <value>をご覧ください。</value>
+  </data>
+  <data name="SkillsHeader" xml:space="preserve">
+    <value>スキル</value>
+  </data>
+  <data name="TechnicalWriting" xml:space="preserve">
+    <value>テクニカルライティング</value>
+  </data>
+  <data name="UggDescription" xml:space="preserve">
+    <value>スナネズミを集めて敵と戦い、パズルを解いていく3D物理アクションゲームです。</value>
+  </data>
   <data name="ViewCode" xml:space="preserve">
+    <value>GitHubでコードを見る</value>
+  </data>
+  <data name="ViewCodeOnGitHub" xml:space="preserve">
     <value>GitHubでコードを見る</value>
   </data>
 </root>

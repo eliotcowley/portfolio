@@ -70,6 +70,15 @@ namespace Portfolio.ResourceFiles {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to English (Native).
+        /// </summary>
+        public static string EnglishNative {
+            get {
+                return ResourceManager.GetString("EnglishNative", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Hello, world!.
         /// </summary>
         public static string Greeting {
@@ -84,6 +93,60 @@ namespace Portfolio.ResourceFiles {
         public static string Home {
             get {
                 return ResourceManager.GetString("Home", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Welcome to my portfolio!.
+        /// </summary>
+        public static string Intro1 {
+            get {
+                return ResourceManager.GetString("Intro1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to This is where I show the games I&apos;ve made, skills I&apos;ve learned, and blog posts I&apos;ve written..
+        /// </summary>
+        public static string Intro2 {
+            get {
+                return ResourceManager.GetString("Intro2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to I made this website using Blazor as a challenge to myself to learn web development..
+        /// </summary>
+        public static string Intro3 {
+            get {
+                return ResourceManager.GetString("Intro3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Japanese (JLPT N3).
+        /// </summary>
+        public static string Japanese {
+            get {
+                return ResourceManager.GetString("Japanese", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt; 1 year.
+        /// </summary>
+        public static string LessThanOneYear {
+            get {
+                return ResourceManager.GetString("LessThanOneYear", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to LinkedIn.
+        /// </summary>
+        public static string LinkedIn {
+            get {
+                return ResourceManager.GetString("LinkedIn", resourceCulture);
             }
         }
         
@@ -106,6 +169,60 @@ namespace Portfolio.ResourceFiles {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to 1 - 3 years.
+        /// </summary>
+        public static string OneToThreeYears {
+            get {
+                return ResourceManager.GetString("OneToThreeYears", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &gt; 3 years.
+        /// </summary>
+        public static string OverThreeYears {
+            get {
+                return ResourceManager.GetString("OverThreeYears", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Play on itch.io.
+        /// </summary>
+        public static string PlayOnItch {
+            get {
+                return ResourceManager.GetString("PlayOnItch", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Projects.
+        /// </summary>
+        public static string Projects {
+            get {
+                return ResourceManager.GetString("Projects", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The following video shows a few of the games that I&apos;ve worked on..
+        /// </summary>
+        public static string Projects1 {
+            get {
+                return ResourceManager.GetString("Projects1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Below are some of the projects I&apos;ve worked on, with links to play them and view source code..
+        /// </summary>
+        public static string Projects2 {
+            get {
+                return ResourceManager.GetString("Projects2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Search.
         /// </summary>
         public static string Search {
@@ -115,11 +232,74 @@ namespace Portfolio.ResourceFiles {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Here are the skills I&apos;ve learned, color-coded by how many years of experience I have with them..
+        /// </summary>
+        public static string Skills1 {
+            get {
+                return ResourceManager.GetString("Skills1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to For my full resume, including educational and work history, see my.
+        /// </summary>
+        public static string Skills2 {
+            get {
+                return ResourceManager.GetString("Skills2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ..
+        /// </summary>
+        public static string Skills3 {
+            get {
+                return ResourceManager.GetString("Skills3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Skills.
+        /// </summary>
+        public static string SkillsHeader {
+            get {
+                return ResourceManager.GetString("SkillsHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Technical Writing.
+        /// </summary>
+        public static string TechnicalWriting {
+            get {
+                return ResourceManager.GetString("TechnicalWriting", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Gather gerbils to fight enemies and solve puzzles in this 3D physics action game..
+        /// </summary>
+        public static string UggDescription {
+            get {
+                return ResourceManager.GetString("UggDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to View code on GitHub.
         /// </summary>
         public static string ViewCode {
             get {
                 return ResourceManager.GetString("ViewCode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to View code on GitHub.
+        /// </summary>
+        public static string ViewCodeOnGitHub {
+            get {
+                return ResourceManager.GetString("ViewCodeOnGitHub", resourceCulture);
             }
         }
     }

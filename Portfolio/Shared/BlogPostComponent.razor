@@ -16,15 +16,8 @@
     private string title;
     private string url;
     private string firstPara;
-    private bool fade = true;
+    private bool fade = false;
     private bool loaded = false;
-
-    public void Refresh()
-    {
-        CreatePostComponent();
-        StateHasChanged();
-        this.fade = true;
-    }
 
     protected override void OnInitialized()
     {
@@ -33,18 +26,21 @@
 
     protected override void OnParametersSet()
     {
-        this.loaded = false;
-        this.fade = false;
-        Refresh();
+        CreatePostComponent();
     }
 
     private void CreatePostComponent()
     {
+        this.loaded = false;
+        this.fade = false;
+        StateHasChanged();
         this.filePath = FilePath; // markdown-test.md
         BlogPost post = DataManager.BlogPosts.Find(post => post.Url.Split('/')[1] + ".md" == this.filePath);
         this.title = post.Title;
         this.firstPara = post.FirstPara;
         this.url = this.filePath.Split('.')[0];
         this.loaded = true;
+        this.fade = true;
+        StateHasChanged();
     }
 }

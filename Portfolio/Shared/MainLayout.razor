@@ -8,22 +8,22 @@
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-dark-blue">
         <div class="container">
             <a class="navbar-brand" href="">@loc["MyName"]</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" @onclick="(() => this.navbarCollapsed = !this.navbarCollapsed)">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link @GetActive("", NavLinkMatch.All)" href="">@loc["Home"]</a>
+                        <a class="nav-link @GetActive("", NavLinkMatch.All)" href="" data-bs-toggle="@(this.navbarCollapsed ? "" : "collapse")" data-bs-target="#navbarSupportedContent" @onclick="@(e => Collapse(""))" role="button">@loc["Home"]</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link @GetActive("blog", NavLinkMatch.All)" href="/blog">@loc["Blog"]</a>
+                        <a class="nav-link @GetActive("blog", NavLinkMatch.All)" href="/blog" data-bs-toggle="@(this.navbarCollapsed ? "" : "collapse")" data-bs-target="#navbarSupportedContent" @onclick="@(e => Collapse("/blog"))" role="button">@loc["Blog"]</a>
                     </li>
                 </ul>
                 <a class="btn btn-primary me-4 mb-2 mb-lg-0" href="https://www.linkedin.com/in/eliotcowley/">
                     <i class="bi bi-linkedin"></i>
                 </a>
-                <form class="me-4 mb-2 mb-lg-0">
+                <form class="me-0 me-lg-4 mb-2 mb-lg-0">
                     <select class="form-select bg-dark text-white arrow-white" aria-label="Select language" @onchange="OnLanguageChange">
                         <option selected class="text-white">Language / 言語</option>
                         <option value="en-US">English</option>
@@ -52,8 +52,11 @@
         </div>
     </div>
 
-    <footer class="container-fluid py-5 text-center myFooter">
-        <div class="container">
+    <footer class="container-fluid py-5 row justify-content-center">
+        <div class="col-12 col-md-auto align-self-center text-center me-0 me-md-5 order-last order-md-first">
+            <a class="btn btn-primary" href="https://paypal.me/eliotcowley">&#x1F37A; @loc["BuyMeABeer"]</a>
+        </div>
+        <div class="col-12 col-md-auto align-self-center text-center ms-0 ms-md-5 mb-3 mb-md-0">
             <p class="m-0 mb-2"><i class="bi bi-code-slash text-success"></i> @loc["MadeWith"]</p>
             <a class="btn btn-light" href="https://github.com/eliotcowley/portfolio"><i class="bi bi-github"></i> @loc["ViewCode"]</a>
         </div>
@@ -64,10 +67,14 @@
     [Inject]
     NavigationManager NavigationManager { get; set; }
 
+    [Inject]
+    protected IJSRuntime _JsRuntime { get; set; }
+
     private List<string> searchSuggestions;
     private string searchString = string.Empty;
     private string currentCulture;
     private int searchDropdownOpacity = 0;
+    private bool navbarCollapsed = true;
 
     protected override void OnInitialized()
     {
@@ -125,5 +132,11 @@
     {
         localStorage.SetItemAsync<string>("language", e.Value.ToString());
         NavigationManager.NavigateTo(NavigationManager.Uri, forceLoad: true);
+    }
+
+    private void Collapse(string uri)
+    {
+        this.navbarCollapsed = true;
+        NavigationManager.NavigateTo(uri);
     }
 }

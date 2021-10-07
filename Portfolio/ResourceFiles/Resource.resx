@@ -120,11 +120,23 @@
   <data name="Blog" xml:space="preserve">
     <value>Blog</value>
   </data>
+  <data name="Brevis" xml:space="preserve">
+    <value>Tales of Brevis: A Beast Called God</value>
+  </data>
+  <data name="BrevisDescription" xml:space="preserve">
+    <value>Local 2-player asymmetric multiplayer game where one player collects carrots while the other tries to stop them.</value>
+  </data>
+  <data name="BuyMeABeer" xml:space="preserve">
+    <value>Buy me a beer</value>
+  </data>
   <data name="EnglishNative" xml:space="preserve">
     <value>English (Native)</value>
   </data>
-  <data name="Greeting" xml:space="preserve">
-    <value>Hello, world!</value>
+  <data name="HogWild" xml:space="preserve">
+    <value>Hog Wild</value>
+  </data>
+  <data name="HogWildDescription" xml:space="preserve">
+    <value>Herd the pigs into their pens, but make sure they don't fall into the black holes.</value>
   </data>
   <data name="Home" xml:space="preserve">
     <value>Home</value>
@@ -140,6 +152,15 @@
   </data>
   <data name="Japanese" xml:space="preserve">
     <value>Japanese (JLPT N3)</value>
+  </data>
+  <data name="JobTitles" xml:space="preserve">
+    <value>Game Developer, Programmer, Technical Writer</value>
+  </data>
+  <data name="Lark" xml:space="preserve">
+    <value>Lark</value>
+  </data>
+  <data name="LarkDescription" xml:space="preserve">
+    <value>Drag your finger or mouse up and down the screen to catch notes in time to the music in this rhythm game about anxiety.</value>
   </data>
   <data name="LessThanOneYear" xml:space="preserve">
     <value>&lt; 1 year</value>
@@ -162,6 +183,9 @@
   <data name="PlayOnItch" xml:space="preserve">
     <value>Play on itch.io</value>
   </data>
+  <data name="PlayWindowsXbox" xml:space="preserve">
+    <value>Play on Windows / Xbox</value>
+  </data>
   <data name="Projects" xml:space="preserve">
     <value>Projects</value>
   </data>
@@ -170,6 +194,12 @@
   </data>
   <data name="Projects2" xml:space="preserve">
     <value>Below are some of the projects I've worked on, with links to play them and view source code.</value>
+  </data>
+  <data name="Quest" xml:space="preserve">
+    <value>Quest</value>
+  </data>
+  <data name="QuestDescription" xml:space="preserve">
+    <value>Control two characters with unique abilities and move between paths to collect coins and defeat enemies in this rhythm-based auto-runner.</value>
   </data>
   <data name="Search" xml:space="preserve">
     <value>Search</value>

@@ -70,6 +70,33 @@ namespace Portfolio.ResourceFiles {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Tales of Brevis: A Beast Called God.
+        /// </summary>
+        public static string Brevis {
+            get {
+                return ResourceManager.GetString("Brevis", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Local 2-player asymmetric multiplayer game where one player collects carrots while the other tries to stop them..
+        /// </summary>
+        public static string BrevisDescription {
+            get {
+                return ResourceManager.GetString("BrevisDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Buy me a beer.
+        /// </summary>
+        public static string BuyMeABeer {
+            get {
+                return ResourceManager.GetString("BuyMeABeer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to English (Native).
         /// </summary>
         public static string EnglishNative {
@@ -79,11 +106,20 @@ namespace Portfolio.ResourceFiles {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Hello, world!.
+        ///   Looks up a localized string similar to Hog Wild.
         /// </summary>
-        public static string Greeting {
+        public static string HogWild {
             get {
-                return ResourceManager.GetString("Greeting", resourceCulture);
+                return ResourceManager.GetString("HogWild", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Herd the pigs into their pens, but make sure they don&apos;t fall into the black holes..
+        /// </summary>
+        public static string HogWildDescription {
+            get {
+                return ResourceManager.GetString("HogWildDescription", resourceCulture);
             }
         }
         
@@ -129,6 +165,33 @@ namespace Portfolio.ResourceFiles {
         public static string Japanese {
             get {
                 return ResourceManager.GetString("Japanese", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Game Developer, Programmer, Technical Writer.
+        /// </summary>
+        public static string JobTitles {
+            get {
+                return ResourceManager.GetString("JobTitles", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Lark.
+        /// </summary>
+        public static string Lark {
+            get {
+                return ResourceManager.GetString("Lark", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Drag your finger or mouse up and down the screen to catch notes in time to the music in this rhythm game about anxiety..
+        /// </summary>
+        public static string LarkDescription {
+            get {
+                return ResourceManager.GetString("LarkDescription", resourceCulture);
             }
         }
         
@@ -196,6 +259,15 @@ namespace Portfolio.ResourceFiles {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Play on Windows / Xbox.
+        /// </summary>
+        public static string PlayWindowsXbox {
+            get {
+                return ResourceManager.GetString("PlayWindowsXbox", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Projects.
         /// </summary>
         public static string Projects {
@@ -219,6 +291,24 @@ namespace Portfolio.ResourceFiles {
         public static string Projects2 {
             get {
                 return ResourceManager.GetString("Projects2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Quest.
+        /// </summary>
+        public static string Quest {
+            get {
+                return ResourceManager.GetString("Quest", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Control two characters with unique abilities and move between paths to collect coins and defeat enemies in this rhythm-based auto-runner..
+        /// </summary>
+        public static string QuestDescription {
+            get {
+                return ResourceManager.GetString("QuestDescription", resourceCulture);
             }
         }
         

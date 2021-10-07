@@ -120,11 +120,23 @@
   <data name="Blog" xml:space="preserve">
     <value>ブログ</value>
   </data>
+  <data name="Brevis" xml:space="preserve">
+    <value>テイルズ・オブ・ブレビス：神と呼ばれる獣</value>
+  </data>
+  <data name="BrevisDescription" xml:space="preserve">
+    <value>1人がニンジンを集め、もう1人がそれを阻止しようとする、ローカル2プレイヤーの非対称マルチプレイヤーゲーム。</value>
+  </data>
+  <data name="BuyMeABeer" xml:space="preserve">
+    <value>ビールをおごる</value>
+  </data>
   <data name="EnglishNative" xml:space="preserve">
     <value>英語（ネイティブ）</value>
   </data>
-  <data name="Greeting" xml:space="preserve">
-    <value>こんにちは、世界！</value>
+  <data name="HogWild" xml:space="preserve">
+    <value>ホッグワイルド</value>
+  </data>
+  <data name="HogWildDescription" xml:space="preserve">
+    <value>豚の群れを檻に入れるが、ブラックホールに落ちないように注意してね！</value>
   </data>
   <data name="Home" xml:space="preserve">
     <value>ホーム</value>
@@ -140,6 +152,15 @@
   </data>
   <data name="Japanese" xml:space="preserve">
     <value>日本語（JLPT N3）</value>
+  </data>
+  <data name="JobTitles" xml:space="preserve">
+    <value>ゲーム開発者・プログラマー・テクニカルライター</value>
+  </data>
+  <data name="Lark" xml:space="preserve">
+    <value>ラーク</value>
+  </data>
+  <data name="LarkDescription" xml:space="preserve">
+    <value>指やマウスで画面を上下にドラッグして、音楽に合わせて音符をキャッチしていく、不安をテーマにしたリズムゲームです。</value>
   </data>
   <data name="LessThanOneYear" xml:space="preserve">
     <value>1年以下</value>
@@ -162,6 +183,9 @@
   <data name="PlayOnItch" xml:space="preserve">
     <value>itch.ioでプレイする</value>
   </data>
+  <data name="PlayWindowsXbox" xml:space="preserve">
+    <value>WindowsとXboxでプレイする</value>
+  </data>
   <data name="Projects" xml:space="preserve">
     <value>プロジェクト</value>
   </data>
@@ -170,6 +194,12 @@
   </data>
   <data name="Projects2" xml:space="preserve">
     <value>以下は、私が手がけたプロジェクトの一部で、プレイしたりソースコードを見たりするためのリンクがついています。</value>
+  </data>
+  <data name="Quest" xml:space="preserve">
+    <value>クエスト</value>
+  </data>
+  <data name="QuestDescription" xml:space="preserve">
+    <value>独特な能力を持つ2人のキャラクターを操作して、道を行き来しながらコインを集めたり、敵を倒したりするリズム系オートランナーです。</value>
   </data>
   <data name="Search" xml:space="preserve">
     <value>検索する</value>

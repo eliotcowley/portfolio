@@ -61,6 +61,15 @@ namespace Portfolio.ResourceFiles {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to All posts.
+        /// </summary>
+        public static string AllPosts {
+            get {
+                return ResourceManager.GetString("AllPosts", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Blog.
         /// </summary>
         public static string Blog {
@@ -93,6 +102,15 @@ namespace Portfolio.ResourceFiles {
         public static string BuyMeABeer {
             get {
                 return ResourceManager.GetString("BuyMeABeer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sorry, I couldn&apos;t find that post :(.
+        /// </summary>
+        public static string CouldntFindPost {
+            get {
+                return ResourceManager.GetString("CouldntFindPost", resourceCulture);
             }
         }
         
@@ -241,6 +259,15 @@ namespace Portfolio.ResourceFiles {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to No results found :(.
+        /// </summary>
+        public static string NoResultsFound {
+            get {
+                return ResourceManager.GetString("NoResultsFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to 1 - 3 years.
         /// </summary>
         public static string OneToThreeYears {
@@ -273,6 +300,15 @@ namespace Portfolio.ResourceFiles {
         public static string PlayWindowsXbox {
             get {
                 return ResourceManager.GetString("PlayWindowsXbox", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Portfolio.
+        /// </summary>
+        public static string Portfolio {
+            get {
+                return ResourceManager.GetString("Portfolio", resourceCulture);
             }
         }
         
@@ -331,6 +367,24 @@ namespace Portfolio.ResourceFiles {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Search results for.
+        /// </summary>
+        public static string SearchResults1 {
+            get {
+                return ResourceManager.GetString("SearchResults1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string SearchResults2 {
+            get {
+                return ResourceManager.GetString("SearchResults2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Here are the skills I&apos;ve learned, color-coded by how many years of experience I have with them..
         /// </summary>
         public static string Skills1 {
@@ -381,15 +435,6 @@ namespace Portfolio.ResourceFiles {
         public static string UggDescription {
             get {
                 return ResourceManager.GetString("UggDescription", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to View code on GitHub.
-        /// </summary>
-        public static string ViewCode {
-            get {
-                return ResourceManager.GetString("ViewCode", resourceCulture);
             }
         }
         

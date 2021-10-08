@@ -2,6 +2,8 @@
 @inject HttpClient Http
 @inject IStringLocalizer<ResourceFiles.Resource> loc
 
+<Document Title="@($"{loc["MyName"]} | {loc["Blog"]}")"></Document>
+
 <h1 class="display-1 mb-5">@loc["Blog"]</h1>
 
 @if (this.currentPagePosts != null && this.currentPagePosts.Count > 0)

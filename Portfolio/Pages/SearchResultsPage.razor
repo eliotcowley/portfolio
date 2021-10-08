@@ -1,11 +1,14 @@
 ﻿@page "/search/{SearchString}"
+@inject IStringLocalizer<ResourceFiles.Resource> loc
+
+<Document Title="@this.searchUiText"></Document>
 
 @if (this.SearchString != null)
 {
-    <h1 class="display-1 mb-5">Search results for "@this.SearchString"</h1>
+    <h1 class="display-1 mb-5">@this.searchUiText</h1>
 }
 
-@if (this.currentPageResults != null)
+@if ((this.currentPageResults != null) && (this.currentPageResults.Count > 0))
 {
     @foreach (var item in this.currentPageResults)
     {
@@ -14,6 +17,10 @@
             <p>@item.FirstPara</p>
         </div>
     }
+}
+else
+{
+    <p>@loc["NoResultsFound"]</p>
 }
 
 @if (this.numPages > 1)
@@ -48,6 +55,7 @@
     private int currentPage = 0;
     private int numResultsOnPage = 5;
     private int numPages = 0;
+    private string searchUiText;
 
     protected override void OnInitialized()
     {
@@ -65,6 +73,7 @@
         this.currentPageResults = GetCurrentPageResults(this.currentPage);
         float numPagesF = (float)this.searchResults.Count / (float)this.numResultsOnPage;
         this.numPages = (int)Math.Ceiling(numPagesF);
+        this.searchUiText = $"{loc["SearchResults1"]}\"{this.SearchString}\"{loc["SearchResults2"]}";
     }
 
     private List<BlogPost> GetSearchResults()

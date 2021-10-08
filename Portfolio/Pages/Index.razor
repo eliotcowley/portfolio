@@ -1,6 +1,8 @@
 ﻿@page "/"
 @inject IStringLocalizer<ResourceFiles.Resource> loc
 
+<Document Title="@($"{loc["MyName"]} | {loc["Portfolio"]}")"></Document>
+
 <h1 class="display-1 text-center">@loc["MyName"]</h1>
 
 <p class="lead text-center">@loc["JobTitles"]</p>

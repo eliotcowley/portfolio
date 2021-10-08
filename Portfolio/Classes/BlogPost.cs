@@ -7,6 +7,7 @@ namespace Portfolio.Classes
 {
     public class BlogPost
     {
+        public string Markdown { get; set; }
         public string Title { get; set; }
         public string Body { get; set; }
 

@@ -1,0 +1,15 @@
+﻿@inject IJSRuntime JSRuntime
+
+@code {
+    [Parameter]
+    public string Title { get; set; }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            Console.WriteLine("After render");
+            await JSRuntime.InvokeVoidAsync("portfolio.setDocumentTitle", Title);
+        }
+    }
+}

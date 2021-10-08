@@ -117,6 +117,9 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AllPosts" xml:space="preserve">
+    <value>全てのポスト</value>
+  </data>
   <data name="Blog" xml:space="preserve">
     <value>ブログ</value>
   </data>
@@ -128,6 +131,9 @@
   </data>
   <data name="BuyMeABeer" xml:space="preserve">
     <value>ビールをおごる</value>
+  </data>
+  <data name="CouldntFindPost" xml:space="preserve">
+    <value>申し訳ありませんが、そのポストを見つかりませんでした :(</value>
   </data>
   <data name="EnglishNative" xml:space="preserve">
     <value>英語（ネイティブ）</value>
@@ -175,7 +181,10 @@
     <value>エリオット・カウリー</value>
   </data>
   <data name="NoBlogPosts" xml:space="preserve">
-    <value>申し訳ありませんが、ブログ記事はまだありません :(</value>
+    <value>申し訳ありませんが、ポストはまだありません :(</value>
+  </data>
+  <data name="NoResultsFound" xml:space="preserve">
+    <value>何も見つかりませんでした :(</value>
   </data>
   <data name="OneToThreeYears" xml:space="preserve">
     <value>1～3年</value>
@@ -188,6 +197,9 @@
   </data>
   <data name="PlayWindowsXbox" xml:space="preserve">
     <value>WindowsとXboxでプレイする</value>
+  </data>
+  <data name="Portfolio" xml:space="preserve">
+    <value>ポートフォリオ</value>
   </data>
   <data name="Projects" xml:space="preserve">
     <value>プロジェクト</value>
@@ -207,6 +219,12 @@
   <data name="Search" xml:space="preserve">
     <value>検索する</value>
   </data>
+  <data name="SearchResults1" xml:space="preserve">
+    <value />
+  </data>
+  <data name="SearchResults2" xml:space="preserve">
+    <value>の検索結果</value>
+  </data>
   <data name="Skills1" xml:space="preserve">
     <value>ここでは、私が学んだスキルを、経験年数別に色分けしてご紹介します。</value>
   </data>
@@ -224,9 +242,6 @@
   </data>
   <data name="UggDescription" xml:space="preserve">
     <value>スナネズミを集めて敵と戦い、パズルを解いていく3D物理アクションゲームです。</value>
-  </data>
-  <data name="ViewCode" xml:space="preserve">
-    <value>GitHubでコードを見る</value>
   </data>
   <data name="ViewCodeOnGitHub" xml:space="preserve">
     <value>GitHubでコードを見る</value>

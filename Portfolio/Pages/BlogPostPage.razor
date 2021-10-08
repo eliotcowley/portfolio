@@ -1,7 +1,10 @@
 ﻿@page "/blog/{PostUrl}"
 @inject HttpClient Http
+@inject IStringLocalizer<ResourceFiles.Resource> loc
 
-<a class="btn btn-light mb-4" href="/blog"><i class="bi bi-arrow-left"></i> All posts</a>
+<Document Title="@($"Eliot Cowley | {this.title}")"></Document>
+
+<a class="btn btn-light mb-4" href="/blog"><i class="bi bi-arrow-left"></i> @loc["AllPosts"]</a>
 
 @if (this.html.Value != string.Empty)
 {
@@ -13,37 +16,37 @@
     public string PostUrl { get; set; }
 
     private MarkupString html;
+    private string title;
 
-    protected override async Task OnInitializedAsync()
+    protected override void OnInitialized()
     {
-        await CreatePage();
+        CreatePage();
     }
 
-    protected async override Task OnParametersSetAsync()
+    protected override void OnParametersSet()
     {
-        await Refresh();
+        Refresh();
     }
 
-    private async Task CreatePage()
+    private void CreatePage()
     {
-        string path = @"blog-posts/" + CultureInfo.CurrentCulture.Name + "/" + this.PostUrl + ".md";
+        BlogPost post = DataManager.BlogPosts.Find(post => post.Url.Split('/')[1] == this.PostUrl);
 
-        try
+        if (post != null)
         {
-            string markdown = await Http.GetStringAsync(path);
-            StringReader stringReader = new StringReader(markdown);
-            string htmlString = Markdown.ToHtml(markdown);
+            this.title = post.Title;
+            string htmlString = Markdown.ToHtml(post.Markdown);
             this.html = new MarkupString(htmlString);
         }
-        catch (Exception)
+        else
         {
-            this.html = new MarkupString("<p>Sorry, I couldn't find that post :(</p>");
+            this.html = new MarkupString($"<p>{loc["CouldntFindPost"]}</p>");
         }
     }
 
-    private async Task Refresh()
+    private void Refresh()
     {
-        await CreatePage();
+        CreatePage();
         StateHasChanged();
     }
 }

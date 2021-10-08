@@ -42,7 +42,7 @@ namespace Portfolio.Classes
                     Console.WriteLine(e.Message);
                     continue;
                 }
-
+                
                 StringReader stringReader = new StringReader(markdown);
                 StringBuilder stringBuilder = new StringBuilder();
                 BlogPost blogPost = new BlogPost();
@@ -77,6 +77,7 @@ namespace Portfolio.Classes
                     }
                 }
 
+                blogPost.Markdown = markdown;
                 blogPost.Body = stringBuilder.ToString().Trim();
                 string url = item.Split('.')[0];
                 blogPost.Url = $"blog/{url}";

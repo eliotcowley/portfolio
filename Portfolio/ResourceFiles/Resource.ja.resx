@@ -181,7 +181,7 @@
     <value>エリオット・カウリー</value>
   </data>
   <data name="NoBlogPosts" xml:space="preserve">
-    <value>申し訳ありませんが、ポストはまだありません :(</value>
+    <value>ポストはまだありません。ごめんね :(</value>
   </data>
   <data name="NoResultsFound" xml:space="preserve">
     <value>何も見つかりませんでした :(</value>

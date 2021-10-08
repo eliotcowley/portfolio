@@ -232,6 +232,15 @@ namespace Portfolio.ResourceFiles {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Sorry, no blog posts yet :(.
+        /// </summary>
+        public static string NoBlogPosts {
+            get {
+                return ResourceManager.GetString("NoBlogPosts", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to 1 - 3 years.
         /// </summary>
         public static string OneToThreeYears {

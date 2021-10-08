@@ -15,10 +15,11 @@ namespace Portfolio.Classes
         public static List<BlogPost> BlogPosts { get; set; }
 
         private static HttpClient httpClient;
+        private static string languageFolder;
 
         public static async Task FetchPostsAsync(HttpClient httpClient)
         {
-            Console.WriteLine("Getting posts");
+            languageFolder = CultureInfo.CurrentCulture.ToString();
             DataManager.httpClient = httpClient;
             PostFiles = await GetPostFilesAsync();
             BlogPosts = await GetPostsAsync(httpClient);
@@ -27,11 +28,21 @@ namespace Portfolio.Classes
         private static async Task<List<BlogPost>> GetPostsAsync(HttpClient httpClient)
         {
             List<BlogPost> blogPosts = new List<BlogPost>();
-            string languageFolder = CultureInfo.CurrentCulture.ToString();
 
             foreach (string item in PostFiles)
             {
-                string markdown = await httpClient.GetStringAsync($"blog-posts/{languageFolder}/{item}");
+                string markdown = string.Empty;
+
+                try
+                {
+                    markdown = await httpClient.GetStringAsync($"blog-posts/{languageFolder}/{item}");
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e.Message);
+                    continue;
+                }
+
                 StringReader stringReader = new StringReader(markdown);
                 StringBuilder stringBuilder = new StringBuilder();
                 BlogPost blogPost = new BlogPost();
@@ -78,7 +89,7 @@ namespace Portfolio.Classes
         private static async Task<List<string>> GetPostFilesAsync()
         {
             List<string> postData = new List<string>();
-            string data = await httpClient.GetStringAsync("blog-posts/blog-post-data.txt");
+            string data = await httpClient.GetStringAsync($"blog-posts/{languageFolder}/blog-post-data.txt");
             StringReader stringReader = new StringReader(data);
 
             while (true)

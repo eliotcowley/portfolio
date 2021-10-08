@@ -1,9 +1,10 @@
 ﻿@page "/blog"
 @inject HttpClient Http
+@inject IStringLocalizer<ResourceFiles.Resource> loc
 
-<h1 class="display-1 mb-5">Blog</h1>
+<h1 class="display-1 mb-5">@loc["Blog"]</h1>
 
-@if (this.currentPagePosts != null)
+@if (this.currentPagePosts != null && this.currentPagePosts.Count > 0)
 {
     @foreach (var item in this.currentPagePosts)
     {
@@ -11,6 +12,10 @@
             <BlogPostComponent FilePath="@item"></BlogPostComponent>
         </div>
     }
+}
+else
+{
+    <p>@loc["NoBlogPosts"]</p>
 }
 
 @if (DataManager.PostFiles != null)

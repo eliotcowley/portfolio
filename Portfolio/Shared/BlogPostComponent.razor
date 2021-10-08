@@ -36,6 +36,12 @@
         StateHasChanged();
         this.filePath = FilePath; // markdown-test.md
         BlogPost post = DataManager.BlogPosts.Find(post => post.Url.Split('/')[1] + ".md" == this.filePath);
+
+        if (post == null)
+        {
+            return;   
+        }
+
         this.title = post.Title;
         this.firstPara = post.FirstPara;
         this.url = this.filePath.Split('.')[0];

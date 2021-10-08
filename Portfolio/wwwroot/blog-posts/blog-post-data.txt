@@ -1,7 +1,0 @@
-markdown-test.md
-markdown-test-2.md
-markdown-test-3.md
-markdown-test-4.md
-markdown-test-5.md
-markdown-test-6.md
-markdown-test-7.md

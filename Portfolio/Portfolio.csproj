@@ -46,6 +46,7 @@
 
   <PropertyGroup>
     <BlazorWebAssemblyLoadAllGlobalizationData>true</BlazorWebAssemblyLoadAllGlobalizationData>
+    <ApplicationIcon>wwwroot\Joystick-256.ico</ApplicationIcon>
   </PropertyGroup>
 
 </Project>

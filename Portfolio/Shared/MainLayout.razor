@@ -113,7 +113,7 @@
                 .Take(3)
                 .ToList();
 
-            this.searchDropdownOpacity = 1;
+            this.searchDropdownOpacity = (this.searchSuggestions.Count > 0) ? 1 : 0;
         }
     }
 

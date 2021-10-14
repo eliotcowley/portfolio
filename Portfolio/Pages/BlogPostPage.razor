@@ -6,10 +6,12 @@
 
 <a class="btn btn-light mb-4" href="/blog"><i class="bi bi-arrow-left"></i> @loc["AllPosts"]</a>
 
-@if (this.html.Value != string.Empty)
-{
-    @this.html
-}
+<div class="reading-width mx-auto">
+    @if (this.html.Value != string.Empty)
+    {
+        @this.html
+    }
+</div>
 
 @code {
     [Parameter]

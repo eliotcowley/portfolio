@@ -376,7 +376,7 @@ namespace Portfolio.ResourceFiles {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Search results for.
+        ///   Looks up a localized string similar to Search results for .
         /// </summary>
         public static string SearchResults1 {
             get {

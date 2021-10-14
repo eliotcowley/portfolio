@@ -151,6 +151,15 @@ namespace Portfolio.ResourceFiles {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Hosted on Azure.
+        /// </summary>
+        public static string HostedOnAzure {
+            get {
+                return ResourceManager.GetString("HostedOnAzure", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Welcome to my portfolio!.
         /// </summary>
         public static string Intro1 {
@@ -232,7 +241,7 @@ namespace Portfolio.ResourceFiles {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Made with Blazor by Eliot Cowley.
+        ///   Looks up a localized string similar to Made with Blazor.
         /// </summary>
         public static string MadeWith {
             get {
@@ -385,7 +394,7 @@ namespace Portfolio.ResourceFiles {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Here are the skills I&apos;ve learned, color-coded by how many years of experience I have with them..
+        ///   Looks up a localized string similar to Here are the skills I&apos;ve learned, organized by how many years of experience I have with them..
         /// </summary>
         public static string Skills1 {
             get {

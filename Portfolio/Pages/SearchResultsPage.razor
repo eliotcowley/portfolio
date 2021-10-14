@@ -89,7 +89,6 @@ else
         int counter = page * this.numResultsOnPage;
         int stop = counter + this.numResultsOnPage;
         List<BlogPost> currentPageResults = new List<BlogPost>();
-        Console.WriteLine($"counter: {counter} stop: {stop}");
 
         while (counter < stop && counter < this.searchResults.Count)
         {

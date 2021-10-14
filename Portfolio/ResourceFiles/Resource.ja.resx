@@ -147,6 +147,9 @@
   <data name="Home" xml:space="preserve">
     <value>ホーム</value>
   </data>
+  <data name="HostedOnAzure" xml:space="preserve">
+    <value>Azureでのホスティング</value>
+  </data>
   <data name="Intro1" xml:space="preserve">
     <value>私のポートフォリオへようこそ!</value>
   </data>
@@ -175,7 +178,7 @@
     <value>LinkedIn</value>
   </data>
   <data name="MadeWith" xml:space="preserve">
-    <value>エリオット・カウリーによって、Blazorを使ったウェブサイト</value>
+    <value>Blazorで作成</value>
   </data>
   <data name="MyName" xml:space="preserve">
     <value>エリオット・カウリー</value>
@@ -226,7 +229,7 @@
     <value>の検索結果</value>
   </data>
   <data name="Skills1" xml:space="preserve">
-    <value>ここでは、私が学んだスキルを、経験年数別に色分けしてご紹介します。</value>
+    <value>ここでは、私が学んだスキルを、経験年数別に分けしてご紹介します。</value>
   </data>
   <data name="Skills2" xml:space="preserve">
     <value>私の学歴や職歴を含む全履歴書は、</value>

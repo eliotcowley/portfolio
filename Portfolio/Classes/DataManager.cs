@@ -39,7 +39,7 @@ namespace Portfolio.Classes
                 }
                 catch (Exception e)
                 {
-                    Console.WriteLine(e.Message);
+                    Console.Error.WriteLine(e.Message);
                     continue;
                 }
                 
@@ -47,6 +47,7 @@ namespace Portfolio.Classes
                 StringBuilder stringBuilder = new StringBuilder();
                 BlogPost blogPost = new BlogPost();
                 bool firstPara = true;
+                bool readTitle = false;
 
                 while (true)
                 {
@@ -62,9 +63,18 @@ namespace Portfolio.Classes
                         continue;
                     }
 
-                    if (s.StartsWith('#'))
+                    if (s.StartsWith('#') && !readTitle)
                     {
                         blogPost.Title = s.Split('#')[1].Trim();
+                        readTitle = true;
+                        continue;
+                    }
+
+                    if (s.StartsWith('!'))
+                    {
+                        string[] tokens = s.Split(new char[] { '!', '[', ']', '(', ')' }, StringSplitOptions.RemoveEmptyEntries);
+                        string centeredImage = $"<div class=\"text-center\"><img src=\"{tokens[1]}\" alt=\"{tokens[0]}\" /></div>";
+                        stringBuilder.AppendLine(centeredImage);
                         continue;
                     }
 

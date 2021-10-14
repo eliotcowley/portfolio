@@ -36,7 +36,8 @@
         {
             this.title = post.Title;
             string htmlString = Markdown.ToHtml(post.Markdown);
-            this.html = new MarkupString(htmlString);
+            string processedHtml = ProcessHtml(htmlString);
+            this.html = new MarkupString(processedHtml);
         }
         else
         {
@@ -48,5 +49,11 @@
     {
         CreatePage();
         StateHasChanged();
+    }
+
+    private string ProcessHtml(string s)
+    {
+        string processedImages = s.Replace("img", "img class=\"mx-auto d-block py-4\"");
+        return processedImages.Replace("h2", "h2 class=\"mt-5\"");
     }
 }

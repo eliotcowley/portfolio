@@ -147,6 +147,9 @@
   <data name="Home" xml:space="preserve">
     <value>Home</value>
   </data>
+  <data name="HostedOnAzure" xml:space="preserve">
+    <value>Hosted on Azure</value>
+  </data>
   <data name="Intro1" xml:space="preserve">
     <value>Welcome to my portfolio!</value>
   </data>
@@ -175,7 +178,7 @@
     <value>LinkedIn</value>
   </data>
   <data name="MadeWith" xml:space="preserve">
-    <value>Made with Blazor by Eliot Cowley</value>
+    <value>Made with Blazor</value>
   </data>
   <data name="MyName" xml:space="preserve">
     <value>Eliot Cowley</value>
@@ -226,7 +229,7 @@
     <value />
   </data>
   <data name="Skills1" xml:space="preserve">
-    <value>Here are the skills I've learned, color-coded by how many years of experience I have with them.</value>
+    <value>Here are the skills I've learned, organized by how many years of experience I have with them.</value>
   </data>
   <data name="Skills2" xml:space="preserve">
     <value>For my full resume, including educational and work history, see my</value>

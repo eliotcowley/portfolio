@@ -8,7 +8,6 @@
     {
         if (firstRender)
         {
-            Console.WriteLine("After render");
             await JSRuntime.InvokeVoidAsync("portfolio.setDocumentTitle", Title);
         }
     }

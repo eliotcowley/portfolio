@@ -19,19 +19,7 @@
 
 <p>@loc["Skills2"] <a href="https://www.linkedin.com/in/eliotcowley/">@loc["LinkedIn"]</a>@loc["Skills3"]</p>
 
-<div class="container text-white">
-    <div class="row">
-        <div class="col-4 col-md-2">
-            <SkillComponent Skill="@loc["OverThreeYears"]" Experience="@ExperienceLevel.OverThreeYears" />
-        </div>
-        <div class="col-4 col-md-2">
-            <SkillComponent Skill="@loc["OneToThreeYears"]" Experience="@ExperienceLevel.OneToThreeYears" />
-        </div>
-        <div class="col-4 col-md-2">
-            <SkillComponent Skill="@loc["LessThanOneYear"]" Experience="@ExperienceLevel.LessThanOneYear" />
-        </div>
-    </div>
-</div>
+<h3 class="mt-4">@loc["OverThreeYears"]</h3>
 
 <div class="container text-white mt-4">
     <div class="row my-0 my-md-4">
@@ -58,11 +46,16 @@
         <div class="col-6 col-md-3 mb-4 my-md-0">
             <SkillComponent Skill="Markdown" Experience="@ExperienceLevel.OverThreeYears" />
         </div>
+    </div>
+</div>
+
+<h3 class="mt-5">@loc["OneToThreeYears"]</h3>
+
+<div class="container text-white mt-4">
+    <div class="row my-0 my-md-4">
         <div class="col-6 col-md-3 mb-4 my-md-0">
             <SkillComponent Skill="C++" Experience="@ExperienceLevel.OneToThreeYears" />
         </div>
-    </div>
-    <div class="row my-0 my-md-4">
         <div class="col-6 col-md-3 mb-4 my-md-0">
             <SkillComponent Skill="DITA" Experience="@ExperienceLevel.OneToThreeYears" />
         </div>
@@ -72,11 +65,16 @@
         <div class="col-6 col-md-3 mb-4 my-md-0">
             <SkillComponent Skill="CSS" Experience="@ExperienceLevel.OneToThreeYears" />
         </div>
+    </div>
+</div>
+
+<h3 class="mt-5">@loc["LessThanOneYear"]</h3>
+
+<div class="container text-white mt-4">
+    <div class="row my-0 my-md-4">
         <div class="col-6 col-md-3 mb-4 my-md-0">
             <SkillComponent Skill="Unreal Engine" Experience="@ExperienceLevel.LessThanOneYear" />
         </div>
-    </div>
-    <div class="row my-0 my-md-4">
         <div class="col-6 col-md-3 mb-4 my-md-0">
             <SkillComponent Skill="Blazor" Experience="@ExperienceLevel.LessThanOneYear" />
         </div>

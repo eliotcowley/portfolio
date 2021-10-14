@@ -55,7 +55,7 @@
 
     private string ProcessHtml(string s)
     {
-        string processedImages = s.Replace("img", "img class=\"mx-auto d-block py-4\"");
+        string processedImages = s.Replace("img", "img class=\"img-fluid mx-auto d-block py-4\"");
         return processedImages.Replace("h2", "h2 class=\"mt-5\"");
     }
 }

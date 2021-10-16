@@ -61,6 +61,11 @@
     max-width: 50rem;
 }
 
+.image-caption {
+    font-weight: bold;
+    text-align: center;
+}
+
 #blazor-error-ui {
     background: lightyellow;
     bottom: 0;

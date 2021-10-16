@@ -2,13 +2,15 @@
 @inject HttpClient Http
 @inject IStringLocalizer<ResourceFiles.Resource> loc
 
-<Document Title="@($"Eliot Cowley | {this.title}")"></Document>
+<Document Title="@($"Eliot Cowley | {this.blogPost.Title}")"></Document>
 
 <a class="btn btn-light mb-4" href="/blog"><i class="bi bi-arrow-left"></i> @loc["AllPosts"]</a>
 
 <div class="reading-width mx-auto">
     @if (this.html.Value != string.Empty)
     {
+        <p>Last updated: @this.blogPost.LastUpdated.ToShortDateString()</p>
+
         @this.html
     }
 </div>
@@ -18,7 +20,7 @@
     public string PostUrl { get; set; }
 
     private MarkupString html;
-    private string title;
+    private BlogPost blogPost;
 
     protected override void OnInitialized()
     {
@@ -32,12 +34,12 @@
 
     private void CreatePage()
     {
-        BlogPost post = DataManager.BlogPosts.Find(post => post.Url.Split('/')[1] == this.PostUrl);
+        this.blogPost = DataManager.BlogPosts.Find(post => post.Url.Split('/')[1] == this.PostUrl);
 
-        if (post != null)
+        if (this.blogPost != null)
         {
-            this.title = post.Title;
-            string htmlString = Markdown.ToHtml(post.Markdown);
+            MarkdownPipeline pipeline = new MarkdownPipelineBuilder().UseYamlFrontMatter().Build();
+            string htmlString = Markdown.ToHtml(this.blogPost.Markdown, pipeline);
             string processedHtml = ProcessHtml(htmlString);
             this.html = new MarkupString(processedHtml);
         }

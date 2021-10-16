@@ -63,6 +63,27 @@ namespace Portfolio.Classes
                         continue;
                     }
 
+                    if (s == "---")
+                    {
+                        while (true)
+                        {
+                            s = stringReader.ReadLine();
+                            Console.WriteLine(s);
+
+                            if (s.StartsWith("date"))
+                            {
+                                blogPost.LastUpdated = DateTime.Parse(s.Split(" ", StringSplitOptions.RemoveEmptyEntries)[1]);
+                                Console.WriteLine(blogPost.LastUpdated.ToShortDateString());
+                                continue;
+                            }
+
+                            if (s == "---" || s == null)
+                            {
+                                break;
+                            }
+                        }
+                    }
+
                     if (s.StartsWith('#') && !readTitle)
                     {
                         blogPost.Title = s.Split('#')[1].Trim();

@@ -1,3 +1,7 @@
+---
+date: 10/15/2021
+---
+
 # How to Learn 2200 Kanji and Not Want to Die
 
 The kanji system is one of the most difficult parts of learning Japanese. Here's how I learned to enjoy it.
@@ -26,6 +30,8 @@ Let’s take another example: 冒 (risk). The top part, 日, means “sun,” an
 
 ![Remembering the Kanji](https://tse2.mm.bing.net/th?id=OIP.Tk81JgDtPdlpesgiWDrWfwHaK_&pid=Api)
 
+<p class="image-caption">This book changed my view on kanji.</p>
+
 It’s best to come up with the story yourself, since it’ll stick in your mind better that way, but to be honest, it often took too long for me to come up with anything meaningful, so for the most part I used the stories on [Kanji Koohii](https://kanji.koohii.com/). It’s a website where people can create stories for each kanji and upvote the ones they like. I would usually take one of the top three stories that I liked best. The internet is infinitely more creative than me.
 
 A common criticism of the Heisig method is that you aren’t learning how to read the kanji, only what they mean. Fair, but as mentioned above, learning all the different readings at once is not only a lot to memorize, but out of context it’s not very useful. I’d argue that it’s better to learn the readings as part of vocabulary study.
@@ -35,6 +41,8 @@ Learning the meanings and how to write the kanji has been invaluable for me. Not
 Once I decided to use the Heisig method, I had to come up with a plan. 2200 kanji is still a lot, no matter how you slice it. (The book contains the *Joyo* kanji as well as others Heisig deemed important.) I used the application [Anki](https://apps.ankiweb.net/) to create virtual flashcards for each kanji. Anki uses an SRS (spaced repetition system) that places flashcards in front of you at the right time, just when you’re about to forget them. It’s highly recommended by most Japanese language learners. On the front of each card I put the keyword, and on the back I put the kanji. So I would read the keyword, write the kanji in my notebook, and see if I was correct. I highly recommend this method of actually writing out the kanji, rather than seeing the kanji and guessing the keyword. It takes more time, but it builds more muscle memory, and improves your writing skills.
 
 ![Anki](https://tse2.mm.bing.net/th?id=OIP.TxEoqDqhNX-M9JtSjtNT9AHaD4&pid=Api)
+
+<p class="image-caption">Anki, my old, ugly friend.</p>
 
 Then I had to decide how many new cards I wanted to add per day. I knew I didn’t want to burn out, as it would be a marathon, not a sprint, but I had seen people recommending 20 new kanji per day, so I started with that. Personally, that ended up being too much for me, so I backed it down to ten, and then five. This will be totally up to your personal situation and how much free time you have, but five was perfect for me.
 

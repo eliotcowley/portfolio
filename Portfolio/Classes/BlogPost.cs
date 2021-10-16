@@ -14,5 +14,6 @@ namespace Portfolio.Classes
         // blog/{file.md}
         public string Url { get; set; }
         public string FirstPara { get; set; }
+        public DateTime LastUpdated { get; set; }
     }
 }

@@ -68,16 +68,20 @@ namespace Portfolio.Classes
                         while (true)
                         {
                             s = stringReader.ReadLine();
-                            Console.WriteLine(s);
 
                             if (s.StartsWith("date"))
                             {
                                 blogPost.LastUpdated = DateTime.Parse(s.Split(" ", StringSplitOptions.RemoveEmptyEntries)[1]);
-                                Console.WriteLine(blogPost.LastUpdated.ToShortDateString());
                                 continue;
                             }
 
-                            if (s == "---" || s == null)
+                            if (s == "---")
+                            {
+                                s = stringReader.ReadLine();
+                                break;
+                            }
+
+                            if (s == null)
                             {
                                 break;
                             }
@@ -101,7 +105,7 @@ namespace Portfolio.Classes
 
                     stringBuilder.AppendLine(s.Trim());
 
-                    if (firstPara)
+                    if (firstPara && !string.IsNullOrWhiteSpace(stringBuilder.ToString()))
                     {
                         blogPost.FirstPara = stringBuilder.ToString();
                         firstPara = false;

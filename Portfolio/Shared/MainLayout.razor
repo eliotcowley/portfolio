@@ -52,6 +52,8 @@
         </div>
     </div>
 
+    <button id="btn-back-to-top" class="btn btn-outline-light fixed-bottom ms-auto me-5 mb-5" style="display: none" @onclick="OnBackToTopButtonClicked"><i class="bi bi-arrow-up"></i></button>
+
     <footer class="container-fluid py-5 row justify-content-center">
         <div class="col-12 col-md-auto align-self-center text-center me-0 me-md-5 order-last order-md-first">
             <a class="btn btn-primary" href="https://paypal.me/eliotcowley">&#x1F37A; @loc["BuyMeABeer"]</a>
@@ -139,5 +141,18 @@
     {
         this.navbarCollapsed = true;
         NavigationManager.NavigateTo(uri);
+    }
+
+    private async void OnBackToTopButtonClicked()
+    {
+        await _JsRuntime.InvokeVoidAsync("OnScrollEvent");
+    }
+
+    private async Task<string> GetBackToTopButtonDisplay()
+    {
+        Console.WriteLine("GetBackToTopButtonDisplay()");
+        string backToTopButtonDisplay = await _JsRuntime.InvokeAsync<string>("getBackToTopButtonDisplay", null);
+        Console.WriteLine(backToTopButtonDisplay);
+        return backToTopButtonDisplay;
     }
 }

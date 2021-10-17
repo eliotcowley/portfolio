@@ -11,9 +11,6 @@ window.onscroll = function () {
         backToTopButton = document.getElementById("btn-back-to-top");
     }
 
-    console.log(document.body.scrollTop);
-    console.log(document.documentElement.scrollTop);
-
     if (document.documentElement.scrollTop > backToTopButtonScrollAmount) {
         backToTopButton.style.display = "block";
     }
@@ -24,4 +21,16 @@ window.onscroll = function () {
 
 function OnScrollEvent() {
     document.documentElement.scrollTop = 0;
+}
+
+var navbar;
+var navbarCollapse;
+
+function collapseNavbar() {
+    if (navbar == null) {
+        navbar = document.getElementById("navbarSupportedContent");
+        navbarCollapse = new bootstrap.Collapse(navbar);
+    }
+
+    navbarCollapse.hide();
 }

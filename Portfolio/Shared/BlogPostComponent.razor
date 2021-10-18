@@ -3,8 +3,9 @@
 <div class="spinner-border @(loaded ? "invisible" : "")" role="status" />
 
 <div class="@(fade ? "" : "invisible") @(fade ? "fade-in" : "")">
-    <h1>@this.title</h1>
-    <p>@this.firstPara</p>
+    <h1>@this.post.Title</h1>
+    <p>Last updated: @this.post.LastUpdated.ToShortDateString()</p>
+    <p>@this.post.FirstPara</p>
     <a class="btn btn-light" href="/blog/@this.url">Read more</a>
 </div>
 
@@ -13,11 +14,10 @@
     public string FilePath { get; set; }
     private string filePath;
 
-    private string title;
-    private string url;
-    private string firstPara;
     private bool fade = false;
     private bool loaded = false;
+    private BlogPost post;
+    private string url;
 
     protected override void OnInitialized()
     {
@@ -35,15 +35,13 @@
         this.fade = false;
         StateHasChanged();
         this.filePath = FilePath; // markdown-test.md
-        BlogPost post = DataManager.BlogPosts.Find(post => post.Url.Split('/')[1] + ".md" == this.filePath);
+        this.post = DataManager.BlogPosts.Find(post => post.Url.Split('/')[1] + ".md" == this.filePath);
 
         if (post == null)
         {
             return;   
         }
 
-        this.title = post.Title;
-        this.firstPara = post.FirstPara;
         this.url = this.filePath.Split('.')[0];
         this.loaded = true;
         this.fade = true;

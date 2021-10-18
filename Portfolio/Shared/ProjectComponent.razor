@@ -15,13 +15,13 @@
         <h5 class="card-title">@this.ProjectName</h5>
         <p class="card-text">@this.ProjectDescription</p>
         <div class="mt-auto row">
-            <div class="d-flex justify-content-center justify-content-sm-start col-12 col-sm-auto mb-2 mb-sm-0 pe-0">
-                <a href="@this.ProjectLink" class="btn btn-primary">&#127918; @this.PlayText</a>
+            <div class="d-flex justify-content-center justify-content-sm-start col-12 col-sm-auto mb-2 mb-sm-0 ps-0 ps-sm-2 pe-0">
+                <a href="@this.ProjectLink" class="btn btn-primary" target="_blank" rel="noopener noreferrer">&#127918; @this.PlayText</a>
             </div>
             @if (this.CodeLink != null)
             {
                 <div class="d-flex justify-content-center justify-content-sm-start col-12 col-sm-auto">
-                    <a href="@this.CodeLink" class="btn btn-light"><i class="bi bi-github"></i> @loc["ViewCodeOnGitHub"]</a>
+                    <a href="@this.CodeLink" class="btn btn-light" target="_blank" rel="noopener noreferrer"><i class="bi bi-github"></i> @loc["ViewCodeOnGitHub"]</a>
                 </div>
             }
         </div>

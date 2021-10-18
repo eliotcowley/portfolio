@@ -1,8 +1,8 @@
 ---
-date: 10/15/2021
+date: 10/18/2021
 ---
 
-# How to Learn 2200 Kanji and Not Want to Die
+# How to learn 2200 kanji and not want to die
 
 The kanji system is one of the most difficult parts of learning Japanese. Here's how I learned to enjoy it.
 
@@ -12,9 +12,11 @@ I’ve been studying Japanese since my freshman year of college in 2011. You’d
 
 I see lots of claims online like “Learn Japanese in a year!” or even just a few months. Obviously it depends on your native language (it’s much easier to learn Japanese if your native tongue is Chinese), but at least coming from English, Japanese is often regarded as one of the most difficult languages to learn.
 
-[The Foreign Service Institute](https://effectivelanguagelearning.com/language-guide/language-difficulty/) says it takes about 2200 hours to learn Japanese for a native English speaker. If you study an hour a day, that’s about six years. Even that may be a little under, because the FSI says Japanese is harder to learn than the other languages in that 2200-hour category. Granted, I haven’t been extremely consistent with my studies – there are probably two years where I didn’t put much effort in – but I wouldn’t be surprised if it takes me a total of ten years to really become fluent, or at least pass JLPT N1 (the hardest level of the Japanese Language Proficiency Test).
+[The Foreign Service Institute](https://effectivelanguagelearning.com/language-guide/language-difficulty/) says it takes about 2200 hours to learn Japanese for a native English speaker. If you study an hour a day, that’s about six years. Even that may be a little under, because the FSI says Japanese is harder to learn than the other languages in that 2200-hour category. Granted, I haven’t been extremely consistent with my studies – there are probably two years where I didn’t put much effort in – but I wouldn’t be surprised if it takes me much longer to really become fluent, or at least pass JLPT N1 (the hardest level of the Japanese Language Proficiency Test).
 
-Part of the reason why it’s so difficult is the kanji, Chinese characters that were imported into Japanese and used for their writing system. The Japanese government has a list called the *Joyo* kanji, or “regular-use” kanji, which is comprised of 2136 characters. These are the kanji deemed to be necessary to read and write everyday Japanese (newspapers, magazines, fiction, etc.).
+Part of the reason why it’s so difficult is the kanji, Chinese characters that were imported into Japanese and used for their writing system. The Japanese government has a list called the *Joyo* kanji, or “regular-use” kanji, which is comprised of 2,136 characters. These are the kanji deemed to be necessary to read and write everyday Japanese (newspapers, magazines, fiction, etc.).
+
+## The Heisig method
 
 I bought James Heisig’s [*Remembering the Kanji*](https://en.wikipedia.org/wiki/Remembering_the_Kanji_and_Remembering_the_Hanzi) in February 2018, and finished it in December 2019. Based on what I had read, this seemed to be one of the best ways to truly learn the kanji. Up until then, I had only learned kanji here and there, out of context, in Japanese classes. We’d learn a set of kanji, take a quiz, and then move on, never to use those kanji again. I can confidently say I didn’t learn anything that way.
 
@@ -38,7 +40,11 @@ A common criticism of the Heisig method is that you aren’t learning how to rea
 
 Learning the meanings and how to write the kanji has been invaluable for me. Not only do the kanji actually make sense to me now, but I can look at a word I’ve never seen before and be able to guess its meaning. For example, you’ll see this word in Japanese apartment buildings a lot: 消火器 (fire extinguisher). Going by the kanji, it literally means “extinguish fire utensil.” So, even if I can’t pronounce it, I know it means fire extinguisher.
 
-Once I decided to use the Heisig method, I had to come up with a plan. 2200 kanji is still a lot, no matter how you slice it. (The book contains the *Joyo* kanji as well as others Heisig deemed important.) I used the application [Anki](https://apps.ankiweb.net/) to create virtual flashcards for each kanji. Anki uses an SRS (spaced repetition system) that places flashcards in front of you at the right time, just when you’re about to forget them. It’s highly recommended by most Japanese language learners. On the front of each card I put the keyword, and on the back I put the kanji. So I would read the keyword, write the kanji in my notebook, and see if I was correct. I highly recommend this method of actually writing out the kanji, rather than seeing the kanji and guessing the keyword. It takes more time, but it builds more muscle memory, and improves your writing skills.
+## Anki
+
+Once I decided to use the Heisig method, I had to come up with a plan. 2200 kanji is still a lot, no matter how you slice it. (The book contains the *Joyo* kanji as well as others Heisig deemed important.) I used the application [Anki](https://apps.ankiweb.net/) to create virtual flashcards for each kanji. Anki uses an SRS (spaced repetition system) that places flashcards in front of you at the right time, just when you’re about to forget them. It’s highly recommended by most Japanese language learners.
+
+On the front of each card I put the keyword, and on the back I put the kanji. So I would read the keyword, write the kanji in my notebook, and see if I was correct. I highly recommend this method of actually writing out the kanji, at least in the beginning, rather than seeing the kanji and guessing the keyword. It takes more time, but it builds more muscle memory, and improves your writing skills. Once your kanji knowledge is pretty solid (my metric is when the Anki deck reaches 90% mature), you can switch to just recognizing the kanji (kanji on the front, keyword on the back), which is much faster than writing them out.
 
 ![Anki](https://tse2.mm.bing.net/th?id=OIP.TxEoqDqhNX-M9JtSjtNT9AHaD4&pid=Api)
 
@@ -48,9 +54,11 @@ Then I had to decide how many new cards I wanted to add per day. I knew I didn�
 
 Like I mentioned earlier, Anki puts flashcards in front of you at the appropriate time to maintain maximum retention. These are called “reviews,” and they can really pile up, especially if you miss a few days. I would go on vacation and come home to a mountain of 500+ reviews due. This is known as the “Anki avalanche,” and can be downright crippling to your motivation.
 
-The Anki avalanche actually proved to be a major problem for me. I found that it took me about an hour to get through 50 reviews plus my five new kanji. I usually didn’t have more time than this during the day with my other commitments, and plus any more than that and I’d start to burn out. So I did something blasphemous: I capped my reviews to 50/day. You’re really not supposed to do this since it messes up the SRS, but for me that was just my max. I later lowered that even further to just 20/day, since I found I just did not have the time most days to do the full 50. Now I’m paying the price, with 1000+ reviews due. I would recommend not capping your reviews, and instead if you’re having issues, simply lower the amount of new cards you add each day to get yourself back on track. I was too impatient though and just wanted to get to the finish line. Now, I’m able to manage my time better, and I’m ready to plow through my reviews at a better rate.
+The Anki avalanche actually proved to be a major problem for me. I found that it took me about an hour to get through 50 reviews plus my five new kanji. I usually didn’t have more time than this during the day with my other commitments, and plus any more than that and I’d start to burn out. So I did something blasphemous: I capped my reviews to 50/day. You’re really not supposed to do this since it messes up the SRS, but for me that was just my max. I later lowered that even further to just 20/day, since I found I just did not have the time most days to do the full 50. Later on I paid the price, ending up with 1000+ reviews due. I would recommend not capping your reviews, and instead if you’re having issues, simply lower the amount of new cards you add each day to get yourself back on track. I was too impatient though and just wanted to get to the finish line. Now my reviews are down to a much more reasonable level.
 
-An issue you might run into is lack of motivation. This is more general advice, but I’ve found that rather than relying on motivation, thinking about it as simply “something I need to do” is more effective. If you carve out a specific time every day when you study kanji, it will just become a habit. I always studied first thing when I came home from work, and it became automatic. I also use to-do apps to keep track of whether I’ve done my kanji that day. Whether I wanted to do it or not, if I just made myself do it, I always felt better and more accomplished afterwards.
+## Motivation
+
+An issue you might run into is lack of motivation. This is more general advice, but I’ve found that rather than relying on motivation, thinking about it as simply “something I need to do” is more effective. If you carve out a specific time every day when you study kanji, it will just become a habit. I always studied first thing when I came home from work, and it became automatic. Nowadays I study in the morning before work with my coffee. I also use to-do apps to keep track of whether I’ve done my kanji that day. Whether I wanted to do it or not, if I just made myself do it, I always felt better and more accomplished afterwards.
 
 Learning 2200 kanji can seem like an impossible mountain to climb, but if you just think about it in terms of what you have to do *today* (e.g., five), that will get you very far. Thanks to the power of incrementalism, before you know it you’ll have pages and pages of kanji written in your notebook.
 
@@ -62,6 +70,6 @@ So, to recap, here is my method for learning 2200 kanji and their meanings:
 * [Anki](https://apps.ankiweb.net/) (Five new kanji per day, but adjust to your needs)
 * [Kanji Koohii](https://kanji.koohii.com/) for stories
 
-None of this is news to anyone who has investigated learning kanji, but I just wanted to spread the message to anyone who wants to learn Japanese but is intimidated by the kanji, like I used to be. This book changed my view completely, and now I actually enjoy kanji. I just wrote a new year’s card for my old host family in Japan, and being able to write kanji without having to constantly look at a reference is amazing.
+None of this is news to anyone who has investigated learning kanji, but I just wanted to spread the message to anyone who wants to learn Japanese but is intimidated by the kanji, like I used to be. This book changed my view completely, and now I actually enjoy kanji. When I want to do something like write a new year’s card for my old host family in Japan, being able to write kanji without having to constantly look at a reference is amazing.
 
-Now I finally feel ready to tackle reading Japanese. Wish me luck.
+Kanji used to be my weakest area of Japanese, but now I count it among my strongest. In fact, I find it way harder to read Japanese in pure kana than with kanji. Trust me, once you learn them, you won't want to go back.

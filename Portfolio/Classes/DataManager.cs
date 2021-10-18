@@ -119,7 +119,9 @@ namespace Portfolio.Classes
                 blogPosts.Add(blogPost);
             }
 
-            return blogPosts;
+            List<BlogPost> orderedPosts = blogPosts.OrderByDescending(post => post.LastUpdated).ToList();
+            orderedPosts.ForEach(post => Console.WriteLine(post.Title));
+            return orderedPosts;
         }
 
         private static async Task<List<string>> GetPostFilesAsync()

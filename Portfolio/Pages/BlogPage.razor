@@ -64,10 +64,12 @@ else
 
         while (counter < this.numPostsOnPage)
         {
-            string post = DataManager.PostFiles.ElementAtOrDefault(page * this.numPostsOnPage + counter);
+            //string post = DataManager.PostFiles.ElementAtOrDefault(page * this.numPostsOnPage + counter);
+            BlogPost blogPost = DataManager.BlogPosts.ElementAtOrDefault(page * this.numPostsOnPage + counter);
 
-            if (!string.IsNullOrEmpty(post))
+            if (blogPost != null && !string.IsNullOrEmpty(blogPost.Title))
             {
+                string post = blogPost.Url.Split('/')[1] + ".md";
                 currentPagePosts.Add(post);
             }
 

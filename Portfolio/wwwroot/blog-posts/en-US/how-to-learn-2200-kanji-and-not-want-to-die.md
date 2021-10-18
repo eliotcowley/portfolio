@@ -1,5 +1,5 @@
 ---
-date: 10/18/2021
+date: 10/17/2021
 ---
 
 # How to learn 2200 kanji and not want to die

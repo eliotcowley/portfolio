@@ -123,13 +123,17 @@
     {
         if (NavigationManager.Uri != $"{NavigationManager.BaseUri}/search/{this.searchString}")
         {
-            this.navbarCollapsed = true;
             this.searchSuggestions.Clear();
             StateHasChanged();
             NavigationManager.NavigateTo($"/search/{this.searchString}");
             this.searchString = string.Empty;
             this.searchDropdownOpacity = 0;
-            await _JsRuntime.InvokeVoidAsync("collapseNavbar");
+
+            if (!this.navbarCollapsed)
+            {
+                this.navbarCollapsed = true;
+                await _JsRuntime.InvokeVoidAsync("collapseNavbar");
+            }
         }
     }
 

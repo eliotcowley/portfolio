@@ -120,7 +120,6 @@ namespace Portfolio.Classes
             }
 
             List<BlogPost> orderedPosts = blogPosts.OrderByDescending(post => post.LastUpdated).ToList();
-            orderedPosts.ForEach(post => Console.WriteLine(post.Title));
             return orderedPosts;
         }
 

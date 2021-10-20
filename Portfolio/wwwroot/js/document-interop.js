@@ -34,3 +34,26 @@ function collapseNavbar() {
 
     navbarCollapse.hide();
 }
+
+function resetScroll() {
+    setTimeout(function () {
+        window.scroll({
+            top: 0,
+            left: 0,
+            behavior: 'smooth'
+        });
+    }, 15);
+}
+
+function resetScrollImmediate() {
+    window.scroll({
+        top: 0,
+        left: 0,
+        behavior: 'instant'
+    });
+}
+
+function logScroll() {
+    console.log("scrollTop: " + document.documentElement.scrollTop);
+    console.log("scrollHeight: " + document.documentElement.scrollHeight);
+}

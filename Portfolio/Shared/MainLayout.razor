@@ -84,6 +84,7 @@
         NavigationManager.LocationChanged += (s, e) =>
         {
             StateHasChanged();
+            _JsRuntime.InvokeVoidAsync("resetScrollImmediate");
         };
 
         this.searchSuggestions = new List<string>();
@@ -156,9 +157,7 @@
 
     private async Task<string> GetBackToTopButtonDisplay()
     {
-        Console.WriteLine("GetBackToTopButtonDisplay()");
         string backToTopButtonDisplay = await _JsRuntime.InvokeAsync<string>("getBackToTopButtonDisplay", null);
-        Console.WriteLine(backToTopButtonDisplay);
         return backToTopButtonDisplay;
     }
 }

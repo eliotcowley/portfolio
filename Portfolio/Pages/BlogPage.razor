@@ -50,6 +50,9 @@ else
     private int numPostsOnPage = 5;
     private int numPages = 0;
 
+    [Inject]
+    protected IJSRuntime _JsRuntime { get; set; }
+
     protected override void OnInitialized()
     {
         this.currentPagePosts = GetCurrentPagePosts(this.currentPage);
@@ -64,7 +67,6 @@ else
 
         while (counter < this.numPostsOnPage)
         {
-            //string post = DataManager.PostFiles.ElementAtOrDefault(page * this.numPostsOnPage + counter);
             BlogPost blogPost = DataManager.BlogPosts.ElementAtOrDefault(page * this.numPostsOnPage + counter);
 
             if (blogPost != null && !string.IsNullOrEmpty(blogPost.Title))

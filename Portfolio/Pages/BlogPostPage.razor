@@ -2,14 +2,20 @@
 @inject HttpClient Http
 @inject IStringLocalizer<ResourceFiles.Resource> loc
 
-<Document Title="@($"Eliot Cowley | {this.blogPost.Title}")"></Document>
+@if (this.blogPost != null)
+{
+    <Document Title="@($"Eliot Cowley | {this.blogPost.Title}")"></Document>
+}
 
 <a class="btn btn-light mb-4" href="/blog"><i class="bi bi-arrow-left"></i> @loc["AllPosts"]</a>
 
 <div class="reading-width mx-auto">
     @if (this.html.Value != string.Empty)
     {
-        <p>Last updated: @this.blogPost.LastUpdated.ToShortDateString()</p>
+        if (this.blogPost != null)
+        {
+            <p>Last updated: @this.blogPost.LastUpdated.ToShortDateString()</p>
+        }
 
         @this.html
     }
@@ -45,6 +51,7 @@
         }
         else
         {
+            Console.WriteLine("Blog post is null");
             this.html = new MarkupString($"<p>{loc["CouldntFindPost"]}</p>");
         }
     }

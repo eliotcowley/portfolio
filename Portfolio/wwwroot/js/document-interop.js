@@ -57,3 +57,9 @@ function logScroll() {
     console.log("scrollTop: " + document.documentElement.scrollTop);
     console.log("scrollHeight: " + document.documentElement.scrollHeight);
 }
+
+var loadingText = document.getElementById("loading");
+
+function setLoadingText(text) {
+    loadingText.innerHTML = text;
+}

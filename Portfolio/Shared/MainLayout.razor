@@ -35,7 +35,14 @@
                     <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="Search" style="opacity: @this.searchDropdownOpacity">
                         @foreach (var item in this.searchSuggestions)
                         {
-                            <li><a class="dropdown-item" href="@DataManager.BlogPosts.Find(post => post.Title == item).Url">@item</a></li>
+                            <li>
+                                <a class="dropdown-item"
+                                   @onclick="@(e => Collapse(DataManager.BlogPosts.Find(post => post.Title == item).Url))"
+                                   data-bs-toggle="@(this.navbarCollapsed ? "" : "collapse")"
+                                   data-bs-target="#navbarSupportedContent">
+                                    @item
+                                </a>
+                            </li>
                         }
                     </ul>
                     <button class="btn btn-light ms-2" type="submit">
